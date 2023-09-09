@@ -193,7 +193,7 @@ $x = \sum_{i = 1}^r a_i *M_i*(M_{i-1} \, mod \, m_i) \,mod\,M \,\,其中\, M_i =
 
 ### 数学基础
 
-<img src="../assets/images/crypto-ecc-math.jpg" alt="img"/>
+<img src="./assets/crypto-ecc-math.jpg" alt="img"/>
 
 对于图 1 中，R 关于 x 轴的对称点 R' 于是有 P + Q = R'。其中所有点的横纵坐标都必须是整数。
 
