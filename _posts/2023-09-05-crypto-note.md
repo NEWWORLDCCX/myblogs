@@ -127,7 +127,7 @@ char plain[16] = {4, 8, 12, 16,
 				  1, 5,  9, 13};
 ~~~
 
-$\begin{bmatrix}2&3&1&1\\1&2&3&1\\1&1&2&3\\3&1&1&2\end{bmatrix} \times \begin{bmatrix}4\\3\\2\\1\end{bmatrix} = \begin{bmatrix}14\\5\\0\\15\end{bmatrix} \stackrel{存储时需要将列转行}{\longrightarrow} \begin{bmatrix}14&5&0&15\end{bmatrix}$
+$\begin{bmatrix}2&3&1&1 \\ 1&2&3&1 \\ 1&1&2&3 \\ 3&1&1&2\end{bmatrix} \times \begin{bmatrix}4\\3\\2\\1\end{bmatrix} = \begin{bmatrix}14\\5\\0\\15\end{bmatrix} \stackrel{存储时需要将列转行}{\longrightarrow} \begin{bmatrix}14&5&0&15\end{bmatrix}$
 
 加密时，被乘数为 $3\,1\,1\,2$ ，解密时将其乘法逆元 $B\,D\,9\,E$，作为被乘数，将密文作为乘数，即可以还原出明文。 
 
@@ -149,7 +149,7 @@ RSA 算法采用公钥密码体制，也称非对称密码体制。
 
 1. 选取两个大素数，p 和 q，计算乘积 $n = p\,*\,q$，n 可以公开，p 和 q 保密。
 2. 随机选取加密密钥 e，使 e 和 $(p-1)*(q-1)$ 互质。
-3. 找出 d，使 $e\,*\,d= 1\,mod\,((p-1)*(q-1))$。
+3. 找出 d，使 $e \, * \, d= 1 \, mod \, ((p-1)*(q-1))$。
 4. 加密：$c = m^e(mod\,n)$，解密：$m = c^d(mod\,n)$。
 5. (e, n) 作为公钥 (公开)，(d, n) 作为私钥。
 
@@ -193,7 +193,7 @@ $x = \sum_{i = 1}^r a_i *M_i*(M_{i-1} \, mod \, m_i) \,mod\,M \,\,其中\, M_i =
 
 ### 数学基础
 
-<img src="../assets/images/crypto-ecc-math.jpg" alt="img" style="zoom:47%;" />
+<img src="../assets/images/crypto-ecc-math.jpg" alt="img"/>
 
 对于图 1 中，R 关于 x 轴的对称点 R' 于是有 P + Q = R'。其中所有点的横纵坐标都必须是整数。
 
