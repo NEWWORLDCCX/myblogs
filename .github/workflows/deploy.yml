@@ -13,4 +13,5 @@ jobs:
           python-version: 3.x
       # - run: pip install mkdocs-material 
       - run: pip --trusted-host pypi.org --trusted-host files.pythonhosted.org install mkdocs-material mkdocs-heti-plugin==0.1.5
+      - run: git remote set-url origin https://github.com/NEWWORLDCCX/NEWWORLDCCX.github.io.git
       - run: mkdocs gh-deploy --force
