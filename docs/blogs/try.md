@@ -1,19 +1,9 @@
 ## try
 
-```ad-note
-title: Nested Admonitions
-collapse: open
-
-Hello!
-
-!!! ad-note
+!!! note
     title: This admonition is nested.
     This is a nested admonition!
-    !!! ad-warning
+    !!! warning
         title: This admonition is closed.
         collapse: close
-
-
-This is in the original admonition.
-```
 
