@@ -48,6 +48,7 @@ nav:
   - Notes: 
     - note: notes/note.md
     - Crypto: notes/crypto/crypto.md
+    - hhh: notes/crypto/hhh.md
   - Blogs:
     - try: blogs/try.md
   - About: about/About.md
