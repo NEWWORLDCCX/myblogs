@@ -60,7 +60,10 @@ nav:
   - Welcome: index.md
   - Notes: 
     - note: notes/note.md
-    - Crypto: notes/crypto/crypto.md
+    - 大二春夏: 
+      - Crypto: notes/crypto/crypto.md
+    - 大三秋冬:
+      - 计网: notes/计网/计网.md
   - Blogs:
     - try: blogs/try.md
   - About: about/About.md
