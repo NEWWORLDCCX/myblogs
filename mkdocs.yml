@@ -65,6 +65,7 @@ nav:
     - 大三秋冬:
       - 计网: notes/计网/计网.md
       - 操作系统: notes/OS/操作系统.md
+      - 计算理论: notes/TC/计算理论.md
   - Blogs:
     - blog: blogs/index.md
     - SRTP:
