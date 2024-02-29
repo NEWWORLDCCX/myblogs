@@ -66,6 +66,9 @@ nav:
       - 计网: notes/计网/计网.md
       - 操作系统: notes/OS/操作系统.md
       - 计算理论: notes/TC/计算理论.md
+    - 大三春夏:
+      - 编译原理: notes/编译原理/编译原理.md
+      - 软件工程: notes/软工/软工.md
   - Blogs:
     - blog: blogs/index.md
     - SRTP:
