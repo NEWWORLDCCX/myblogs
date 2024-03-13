@@ -73,6 +73,8 @@ nav:
     - blog: blogs/index.md
     - SRTP:
       - 10.25 result5: blogs/srtp/10.25/10.25整理.md
+    - CV:
+      - CV: blogs/CV/CV.md
   - About: about/About.md
 
 extra_javascript:
