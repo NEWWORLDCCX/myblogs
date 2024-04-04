@@ -75,8 +75,6 @@ nav:
       - 10.25 result5: blogs/srtp/10.25/10.25整理.md
     - intern:
       - paper-reading-20240403: blogs/intern/paper-reading-20240403/reading.md
-    - CV:
-      - CV: blogs/CV/CV.md
   - About: about/About.md
 
 extra_javascript:
