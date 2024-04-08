@@ -110,7 +110,7 @@ code: [DreamGaussian](https://github.com/dreamgaussian/dreamgaussian.git)
 
 最终将需要渲染的对象展开为 UV-Map 进行进一步的优化。
 
-### EG3D
+#### EG3D
 
 paper: [Efficient Geometry-aware 3D Generative Adversarial Networks](https://arxiv.org/abs/2112.07945)
 
