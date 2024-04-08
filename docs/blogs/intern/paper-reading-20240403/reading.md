@@ -8,7 +8,7 @@
 
 paper: [NeRF: Representing Scenes as Neural Radiance Fields for View Synthesis](http://arxiv.org/abs/2003.08934)
 
-website: https://www.matthewtancik.com/nerf
+website: [NeRF](https://www.matthewtancik.com/nerf)
 
 code: [NeRF-pytorch](https://github.com/yenchenlin/nerf-pytorch.git)
 
@@ -40,9 +40,9 @@ Hierarchical Volume Sampling  则是一种提高渲染效率，降低渲染成�
 
 paper: [3D Gaussian Splatting for Real-Time Radiance Field Rendering](https://repo-sam.inria.fr/fungraph/3d-gaussian-splatting/3d_gaussian_splatting_high.pdf)
 
-website: https://repo-sam.inria.fr/fungraph/3d-gaussian-splatting/
+website: [3D Gaussian Splatting](https://repo-sam.inria.fr/fungraph/3d-gaussian-splatting/)
 
-code: https://github.com/graphdeco-inria/gaussian-splatting.git
+code: [3D Gaussian Splatting](https://github.com/graphdeco-inria/gaussian-splatting.git)
 
 Gaussian splatting 主要在 NeRF 的基础上提升了视觉质量，并实现了实时的渲染。
 
@@ -74,7 +74,7 @@ Gaussian splatting 主要在 NeRF 的基础上提升了视觉质量，并实现�
 
 paper: [Mip-NeRF: A Multiscale Representation for Anti-Aliasing Neural Radiance Fields](https://jonbarron.info/mipnerf/)
 
-code: https://github.com/google/mipnerf.git
+code: [Mip-NeRF](https://github.com/google/mipnerf.git)
 
 <img src="https://user-images.githubusercontent.com/3310961/118305131-6ce86700-b49c-11eb-99b8-adcf276e9fe9.jpg" alt="rays" style="zoom:33%;" />
 
@@ -94,7 +94,7 @@ NeRF 中使用了正弦波编码来增加坐标的纬度，但会收到分辨率
 
 paper: [DreamGaussian: Generative Gaussian Splatting for Efficient 3D Content Creation](http://arxiv.org/abs/2309.16653)
 
-code: https://github.com/dreamgaussian/dreamgaussian.git
+code: [DreamGaussian](https://github.com/dreamgaussian/dreamgaussian.git)
 
 ##### Motivation
 
@@ -114,7 +114,7 @@ code: https://github.com/dreamgaussian/dreamgaussian.git
 
 paper: [Efficient Geometry-aware 3D Generative Adversarial Networks](https://arxiv.org/abs/2112.07945)
 
-code: https://github.com/NVlabs/eg3d
+code: [EG3D](https://github.com/NVlabs/eg3d)
 
 ##### Motivation
 
