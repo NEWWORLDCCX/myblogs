@@ -1,0 +1,1965 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<link href="https://NEWWORLDCCX.github.io/myblogs/notes/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86.html" rel="canonical"/>
+<link href="../TC/%E8%AE%A1%E7%AE%97%E7%90%86%E8%AE%BA.html" rel="prev"/>
+<link href="../%E8%BD%AF%E5%B7%A5/%E8%BD%AF%E5%B7%A5.html" rel="next"/>
+<link href="../../assets/images/favicon.png" rel="icon"/>
+<meta content="mkdocs-1.6.0, mkdocs-material-9.5.26" name="generator"/>
+<title>编译原理 - My Blogs</title>
+<link href="../../assets/stylesheets/main.6543a935.min.css" rel="stylesheet"/>
+<link href="../../assets/stylesheets/palette.06af60db.min.css" rel="stylesheet"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CCascadia:400,400i,700,700i&amp;display=fallback" rel="stylesheet"/>
+<style>:root{--md-text-font:"Roboto";--md-code-font:"Cascadia"}</style>
+<link href="../../css/heti.css" rel="stylesheet"/>
+<link href="../../format_more/stylesheets/extra.css" rel="stylesheet"/>
+<script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+</head>
+<body data-md-color-accent="indigo" data-md-color-primary="indigo" data-md-color-scheme="default" dir="ltr">
+<input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
+<input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
+<label class="md-overlay" for="__drawer"></label>
+<div data-md-component="skip">
+<a class="md-skip" href="#_1">
+          Skip to content
+        </a>
+</div>
+<div data-md-component="announce">
+</div>
+<header class="md-header" data-md-component="header">
+<nav aria-label="Header" class="md-header__inner md-grid">
+<a aria-label="My Blogs" class="md-header__button md-logo" data-md-component="logo" href="../../index.html" title="My Blogs">
+<img alt="logo" src="../../images/logo.png"/>
+</a>
+<label class="md-header__button md-icon" for="__drawer">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"></path></svg>
+</label>
+<div class="md-header__title" data-md-component="header-title">
+<div class="md-header__ellipsis">
+<div class="md-header__topic">
+<span class="md-ellipsis">
+            My Blogs
+          </span>
+</div>
+<div class="md-header__topic" data-md-component="header-topic">
+<span class="md-ellipsis">
+            
+              编译原理
+            
+          </span>
+</div>
+</div>
+</div>
+<form class="md-header__option" data-md-component="palette">
+<input aria-label="Switch to dark mode" class="md-option" data-md-color-accent="indigo" data-md-color-media="(prefers-color-scheme: light)" data-md-color-primary="indigo" data-md-color-scheme="default" id="__palette_0" name="__palette" type="radio"/>
+<label class="md-header__button md-icon" for="__palette_1" hidden="" title="Switch to dark mode">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3 3.19.09m3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95 2.06.05m-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31Z"></path></svg>
+</label>
+<input aria-label="Switch to light mode" class="md-option" data-md-color-accent="indigo" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-primary="indigo" data-md-color-scheme="slate" id="__palette_1" name="__palette" type="radio"/>
+<label class="md-header__button md-icon" for="__palette_0" hidden="" title="Switch to light mode">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5c-.84 0-1.65.15-2.39.42L12 2M3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29L3.34 7m.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14L3.36 17M20.65 7l-1.77 3.79a7.023 7.023 0 0 0-2.38-4.15l4.15.36m-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29L20.64 17M12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44L12 22Z"></path></svg>
+</label>
+</form>
+<script>var media,input,key,value,palette=__md_get("__palette");if(palette&&palette.color){"(prefers-color-scheme)"===palette.color.media&&(media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']"),palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent"));for([key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+<label class="md-header__button md-icon" for="__search">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"></path></svg>
+</label>
+<div class="md-search" data-md-component="search" role="dialog">
+<label class="md-search__overlay" for="__search"></label>
+<div class="md-search__inner" role="search">
+<form class="md-search__form" name="search">
+<input aria-label="Search" autocapitalize="off" autocomplete="off" autocorrect="off" class="md-search__input" data-md-component="search-query" name="query" placeholder="Search" required="" spellcheck="false" type="text"/>
+<label class="md-search__icon md-icon" for="__search">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"></path></svg>
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"></path></svg>
+</label>
+<nav aria-label="Search" class="md-search__options">
+<button aria-label="Clear" class="md-search__icon md-icon" tabindex="-1" title="Clear" type="reset">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"></path></svg>
+</button>
+</nav>
+</form>
+<div class="md-search__output">
+<div class="md-search__scrollwrap" data-md-scrollfix="" tabindex="0">
+<div class="md-search-result" data-md-component="search-result">
+<div class="md-search-result__meta">
+            Initializing search
+          </div>
+<ol class="md-search-result__list" role="presentation"></ol>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="md-header__source">
+<a class="md-source" data-md-component="source" href="https://github.com/NEWWORLDCCX/myblogs" title="Go to repository">
+<div class="md-source__icon md-icon">
+<svg viewbox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><!--! Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"></path></svg>
+</div>
+<div class="md-source__repository">
+    Website-git
+  </div>
+</a>
+</div>
+</nav>
+</header>
+<div class="md-container" data-md-component="container">
+<nav aria-label="Tabs" class="md-tabs" data-md-component="tabs">
+<div class="md-grid">
+<ul class="md-tabs__list">
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../index.html">
+        
+  
+    
+  
+  Welcome
+
+      </a>
+</li>
+<li class="md-tabs__item md-tabs__item--active">
+<a class="md-tabs__link" href="../note.html">
+          
+  
+  Notes
+
+        </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../blogs/index.html">
+          
+  
+  Blogs
+
+        </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../about/About.html">
+        
+  
+    
+  
+  About
+
+      </a>
+</li>
+</ul>
+</div>
+</nav>
+<main class="md-main" data-md-component="main">
+<div class="md-main__inner md-grid">
+<div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation">
+<div class="md-sidebar__scrollwrap">
+<div class="md-sidebar__inner">
+<nav aria-label="Navigation" class="md-nav md-nav--primary md-nav--lifted" data-md-level="0">
+<label class="md-nav__title" for="__drawer">
+<a aria-label="My Blogs" class="md-nav__button md-logo" data-md-component="logo" href="../../index.html" title="My Blogs">
+<img alt="logo" src="../../images/logo.png"/>
+</a>
+    My Blogs
+  </label>
+<div class="md-nav__source">
+<a class="md-source" data-md-component="source" href="https://github.com/NEWWORLDCCX/myblogs" title="Go to repository">
+<div class="md-source__icon md-icon">
+<svg viewbox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><!--! Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"></path></svg>
+</div>
+<div class="md-source__repository">
+    Website-git
+  </div>
+</a>
+</div>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../index.html">
+<span class="md-ellipsis">
+    Welcome
+  </span>
+</a>
+</li>
+<li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" id="__nav_2" type="checkbox"/>
+<label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+<span class="md-ellipsis">
+    Notes
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="true" aria-labelledby="__nav_2_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_2">
+<span class="md-nav__icon md-icon"></span>
+            Notes
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../note.html">
+<span class="md-ellipsis">
+    note
+  </span>
+</a>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_2_2" type="checkbox"/>
+<label class="md-nav__link" for="__nav_2_2" id="__nav_2_2_label" tabindex="0">
+<span class="md-ellipsis">
+    大二春夏
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_2_2_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_2_2">
+<span class="md-nav__icon md-icon"></span>
+            大二春夏
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../crypto/crypto.html">
+<span class="md-ellipsis">
+    密码学
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_2_3" type="checkbox"/>
+<label class="md-nav__link" for="__nav_2_3" id="__nav_2_3_label" tabindex="0">
+<span class="md-ellipsis">
+    大三秋冬
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_2_3_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_2_3">
+<span class="md-nav__icon md-icon"></span>
+            大三秋冬
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../%E8%AE%A1%E7%BD%91/%E8%AE%A1%E7%BD%91.html">
+<span class="md-ellipsis">
+    计网
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../OS/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F.html">
+<span class="md-ellipsis">
+    操作系统
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../TC/%E8%AE%A1%E7%AE%97%E7%90%86%E8%AE%BA.html">
+<span class="md-ellipsis">
+    计算理论
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--active md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" id="__nav_2_4" type="checkbox"/>
+<label class="md-nav__link" for="__nav_2_4" id="__nav_2_4_label" tabindex="0">
+<span class="md-ellipsis">
+    大三春夏
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="true" aria-labelledby="__nav_2_4_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_2_4">
+<span class="md-nav__icon md-icon"></span>
+            大三春夏
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item md-nav__item--active">
+<input class="md-nav__toggle md-toggle" id="__toc" type="checkbox"/>
+<label class="md-nav__link md-nav__link--active" for="__toc">
+<span class="md-ellipsis">
+    编译原理
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<a class="md-nav__link md-nav__link--active" href="%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86.html">
+<span class="md-ellipsis">
+    编译原理
+  </span>
+</a>
+<nav aria-label="Table of contents" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_1">
+<span class="md-ellipsis">
+      编译原理
+    </span>
+</a>
+<nav aria-label="编译原理" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#introduction">
+<span class="md-ellipsis">
+      Introduction
+    </span>
+</a>
+<nav aria-label="Introduction" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#typical-workflow-of-a-compiler">
+<span class="md-ellipsis">
+      Typical Workflow of a Compiler
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#tiger">
+<span class="md-ellipsis">
+      Tiger 编译器
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#lexical-analysis">
+<span class="md-ellipsis">
+      Lexical Analysis 词法分析
+    </span>
+</a>
+<nav aria-label="Lexical Analysis 词法分析" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#lexical-token">
+<span class="md-ellipsis">
+      Lexical Token
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#regular-expression">
+<span class="md-ellipsis">
+      Regular Expression
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#finite-automata">
+<span class="md-ellipsis">
+      Finite Automata
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#nondeterministic-finite-automata">
+<span class="md-ellipsis">
+      Nondeterministic Finite Automata
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#lex-a-lexical-analyzer-generator">
+<span class="md-ellipsis">
+      Lex: A Lexical Analyzer Generator
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#syntax-analysis">
+<span class="md-ellipsis">
+      Syntax analysis 语法分析
+    </span>
+</a>
+<nav aria-label="Syntax analysis 语法分析" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#cfg">
+<span class="md-ellipsis">
+      CFG 上下文无关文法
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#top-down-parsing">
+<span class="md-ellipsis">
+      Top-Down Parsing
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#lrk-parsing">
+<span class="md-ellipsis">
+      LR(k) parsing
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#abstract-syntax">
+<span class="md-ellipsis">
+      Abstract Syntax 抽象语法
+    </span>
+</a>
+<nav aria-label="Abstract Syntax 抽象语法" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#abstract-syntax-tree">
+<span class="md-ellipsis">
+      Abstract Syntax Tree
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#semantic-analysis">
+<span class="md-ellipsis">
+      Semantic Analysis 语义分析
+    </span>
+</a>
+<nav aria-label="Semantic Analysis 语义分析" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#symbol-tables">
+<span class="md-ellipsis">
+      Symbol Tables 符号表
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#type-checking">
+<span class="md-ellipsis">
+      Type-checking 类型检查
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#activation-records">
+<span class="md-ellipsis">
+      Activation Records 活动记录
+    </span>
+</a>
+<nav aria-label="Activation Records 活动记录" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#stack-frame">
+<span class="md-ellipsis">
+      Stack frame
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#static-link">
+<span class="md-ellipsis">
+      Static Link
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#interm-code">
+<span class="md-ellipsis">
+      Interm. Code 中间代码
+    </span>
+</a>
+<nav aria-label="Interm. Code 中间代码" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#three-address-code">
+<span class="md-ellipsis">
+      Three Address Code 三地址码
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#intermediate-representation-tree">
+<span class="md-ellipsis">
+      Intermediate Representation Tree
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#translate-into-ir-tree">
+<span class="md-ellipsis">
+      Translate into IR tree
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../%E8%BD%AF%E5%B7%A5/%E8%BD%AF%E5%B7%A5.html">
+<span class="md-ellipsis">
+    软件工程
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_3" type="checkbox"/>
+<label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+<span class="md-ellipsis">
+    Blogs
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_3_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_3">
+<span class="md-nav__icon md-icon"></span>
+            Blogs
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../blogs/index.html">
+<span class="md-ellipsis">
+    blog
+  </span>
+</a>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_3_2" type="checkbox"/>
+<label class="md-nav__link" for="__nav_3_2" id="__nav_3_2_label" tabindex="0">
+<span class="md-ellipsis">
+    SRTP
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_3_2_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_3_2">
+<span class="md-nav__icon md-icon"></span>
+            SRTP
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../blogs/srtp/10.25/10.25%E6%95%B4%E7%90%86.html">
+<span class="md-ellipsis">
+    10.25 result5
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_3_3" type="checkbox"/>
+<label class="md-nav__link" for="__nav_3_3" id="__nav_3_3_label" tabindex="0">
+<span class="md-ellipsis">
+    intern
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_3_3_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_3_3">
+<span class="md-nav__icon md-icon"></span>
+            intern
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../blogs/intern/paper-reading-20240403/reading.html">
+<span class="md-ellipsis">
+    paper-reading-20240403
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../about/About.html">
+<span class="md-ellipsis">
+    About
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</div>
+</div>
+</div>
+<div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc">
+<div class="md-sidebar__scrollwrap">
+<div class="md-sidebar__inner">
+<nav aria-label="Table of contents" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_1">
+<span class="md-ellipsis">
+      编译原理
+    </span>
+</a>
+<nav aria-label="编译原理" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#introduction">
+<span class="md-ellipsis">
+      Introduction
+    </span>
+</a>
+<nav aria-label="Introduction" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#typical-workflow-of-a-compiler">
+<span class="md-ellipsis">
+      Typical Workflow of a Compiler
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#tiger">
+<span class="md-ellipsis">
+      Tiger 编译器
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#lexical-analysis">
+<span class="md-ellipsis">
+      Lexical Analysis 词法分析
+    </span>
+</a>
+<nav aria-label="Lexical Analysis 词法分析" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#lexical-token">
+<span class="md-ellipsis">
+      Lexical Token
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#regular-expression">
+<span class="md-ellipsis">
+      Regular Expression
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#finite-automata">
+<span class="md-ellipsis">
+      Finite Automata
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#nondeterministic-finite-automata">
+<span class="md-ellipsis">
+      Nondeterministic Finite Automata
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#lex-a-lexical-analyzer-generator">
+<span class="md-ellipsis">
+      Lex: A Lexical Analyzer Generator
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#syntax-analysis">
+<span class="md-ellipsis">
+      Syntax analysis 语法分析
+    </span>
+</a>
+<nav aria-label="Syntax analysis 语法分析" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#cfg">
+<span class="md-ellipsis">
+      CFG 上下文无关文法
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#top-down-parsing">
+<span class="md-ellipsis">
+      Top-Down Parsing
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#lrk-parsing">
+<span class="md-ellipsis">
+      LR(k) parsing
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#abstract-syntax">
+<span class="md-ellipsis">
+      Abstract Syntax 抽象语法
+    </span>
+</a>
+<nav aria-label="Abstract Syntax 抽象语法" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#abstract-syntax-tree">
+<span class="md-ellipsis">
+      Abstract Syntax Tree
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#semantic-analysis">
+<span class="md-ellipsis">
+      Semantic Analysis 语义分析
+    </span>
+</a>
+<nav aria-label="Semantic Analysis 语义分析" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#symbol-tables">
+<span class="md-ellipsis">
+      Symbol Tables 符号表
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#type-checking">
+<span class="md-ellipsis">
+      Type-checking 类型检查
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#activation-records">
+<span class="md-ellipsis">
+      Activation Records 活动记录
+    </span>
+</a>
+<nav aria-label="Activation Records 活动记录" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#stack-frame">
+<span class="md-ellipsis">
+      Stack frame
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#static-link">
+<span class="md-ellipsis">
+      Static Link
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#interm-code">
+<span class="md-ellipsis">
+      Interm. Code 中间代码
+    </span>
+</a>
+<nav aria-label="Interm. Code 中间代码" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#three-address-code">
+<span class="md-ellipsis">
+      Three Address Code 三地址码
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#intermediate-representation-tree">
+<span class="md-ellipsis">
+      Intermediate Representation Tree
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#translate-into-ir-tree">
+<span class="md-ellipsis">
+      Translate into IR tree
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</div>
+</div>
+</div>
+<div class="md-content" data-md-component="content">
+<article class="md-content__inner md-typeset">
+<h1>编译原理</h1>
+<h2 id="_1">编译原理</h2>
+<blockquote>
+<p><span>2023 - 2024<span class="heti-spacing"> </span></span>春夏</p>
+</blockquote>
+<h3 id="introduction">Introduction</h3>
+<blockquote>
+<p>2024.02.29</p>
+</blockquote>
+<p><code>compiler</code><span>:<span class="heti-spacing"> </span></span>一个将一种语言翻译为另一种语言的程序<span class="heti-skip"><span class="heti-spacing"> </span>(<span class="heti-spacing"> </span></span>语言与计算机相关<span><span class="heti-spacing"> </span>)</span>。</p>
+<p><img alt="image-20240229105604094" src="./编译原理.assets/image-20240229105604094.png" style="zoom:25%;"/></p>
+<h4 id="typical-workflow-of-a-compiler">Typical Workflow of a Compiler</h4>
+<p>编译器的工作阶段通常如下：分为<strong>前、中、后</strong>三端</p>
+<p><img alt="image-20240229105635243" src="./编译原理.assets/image-20240229105635243.png" style="zoom:25%;"/></p>
+<ul>
+<li>
+<p><strong>词法分析</strong><span class="heti-skip"><span class="heti-spacing"> </span>(Lexical Analysis): String<span class="heti-spacing"> </span></span><span class="arithmatex">\(\rightarrow\)</span><span class="heti-skip"><span class="heti-spacing"> </span>token sequence (<span class="heti-spacing"> </span></span>记号序列<span><span class="heti-spacing"> </span>)</span>，删除不必要的部分。通常使用正则表达式定义<span class="heti-skip"><span class="heti-spacing"> </span>(<span class="heti-spacing"> </span></span>例如<code>rm 2024*</code><span><span class="heti-spacing"> </span>)</span>，用于匹配不同的<span><span class="heti-spacing"> </span>token</span>。</p>
+</li>
+<li>
+<p><strong>语法分析</strong><span class="heti-skip"><span class="heti-spacing"> </span>(Syntactic Analysis):<span class="heti-spacing"> </span></span>将记号序列解析为某种语法结构<span class="heti-skip"><span class="heti-spacing"> </span>(<span class="heti-spacing"> </span></span>如语法树<span><span class="heti-spacing"> </span>)</span>。</p>
+</li>
+<li>
+<p><strong>语义分析</strong><span class="heti-skip"><span class="heti-spacing"> </span>(Semantic Analysis):<span class="heti-spacing"> </span></span>分析语法树节点的属性信息等。得到符号表等。</p>
+</li>
+</ul>
+<p><img alt="image-20240229111638563" src="./编译原理.assets/image-20240229111638563.png" style="zoom:25%;"/></p>
+<ul>
+<li><strong>中间代码生成</strong><span class="heti-skip"><span class="heti-spacing"> </span>(IR):<span class="heti-spacing"> </span></span>源语言与目标语言的桥梁。<span>(<span class="heti-spacing"> </span></span>三地址<span class="heti-skip"><span class="heti-spacing"> </span>:<span class="heti-spacing"> </span></span>每个表达式中至多一个操作符两个操作数<span><span class="heti-spacing"> </span>)</span></li>
+</ul>
+<p><img alt="image-20240229111840556" src="./编译原理.assets/image-20240229111840556.png" style="zoom:25%;"/></p>
+<ul>
+<li><span>**<span class="heti-spacing"> </span></span>基于中间表示的优化<span class="heti-skip"><span class="heti-spacing"> </span>** (<span class="heti-spacing"> </span></span>机器无关代码优化<span class="heti-skip"><span class="heti-spacing"> </span>):<span class="heti-spacing"> </span></span>对中间代码进行优化和变换，降低执行时间，减少资源消耗。</li>
+</ul>
+<p><img alt="image-20240229112209757" src="./编译原理.assets/image-20240229112209757.png" style="zoom:25%;"/></p>
+<ul>
+<li><strong>后端<span class="heti-skip"><span class="heti-spacing"> </span>-<span class="heti-spacing"> </span></span>目标代码生成</strong><span class="heti-skip"><span class="heti-spacing"> </span>:<span class="heti-spacing"> </span></span>把中间代码翻译为目标语言，涉及到<strong>指令选择</strong>、<strong>寄存器分配</strong>、<strong>指令调度</strong>等。</li>
+</ul>
+<p><img alt="image-20240229112502564" src="./编译原理.assets/image-20240229112502564.png" style="zoom:25%;"/></p>
+<h4 id="tiger"><span>Tiger<span class="heti-spacing"> </span></span>编译器</h4>
+<p><img alt="image-20240229112935252" src="./编译原理.assets/image-20240229112935252.png" style="zoom:33%;"/></p>
+<ul>
+<li><strong><span>AST<span class="heti-spacing"> </span></span></strong><span>(<span class="heti-spacing"> </span></span>抽象语法树<span class="heti-skip"><span class="heti-spacing"> </span>):<span class="heti-spacing"> </span></span>经过语法分析<span class="heti-skip"><span class="heti-spacing"> </span>+ "Parsing Actions"<span class="heti-spacing"> </span></span>生成。</li>
+<li><strong><span>IR Tree<span class="heti-spacing"> </span></span></strong><span>(<span class="heti-spacing"> </span></span>树型中间表示<span class="heti-skip"><span class="heti-spacing"> </span>):<span class="heti-spacing"> </span></span>语义分析之后按照一定规则生成。进行了归一化<span class="heti-skip"><span class="heti-spacing"> </span>(Canonicalized)<span class="heti-spacing"> </span></span>的操作。</li>
+<li><strong><span>Control Flow Analysis<span class="heti-spacing"> </span></span></strong><span>(<span class="heti-spacing"> </span></span>控制流分析<span class="heti-skip"><span class="heti-spacing"> </span>):<span class="heti-spacing"> </span></span>判断分支语句的执行路径<span class="heti-skip"><span class="heti-spacing"> </span>(<span class="heti-spacing"> </span></span>可以去除不可达的路径<span><span class="heti-spacing"> </span>)</span>。</li>
+<li><strong><span>CFG<span class="heti-spacing"> </span></span></strong><span>(Control Flow Graph) (<span class="heti-spacing"> </span></span>控制流图<span class="heti-skip"><span class="heti-spacing"> </span>):<span class="heti-spacing"> </span></span>方便进行数据流分析–如活跃变量分析<span><span class="heti-spacing"> </span>(Liveness Analysis)</span>。</li>
+<li><strong><span>Interference Graph<span class="heti-spacing"> </span></span></strong><span>(<span class="heti-spacing"> </span></span>冲突图<span class="heti-skip"><span class="heti-spacing"> </span>):<span class="heti-spacing"> </span></span>从活跃变量分析的结果构造，用于指导寄存器分配。</li>
+</ul>
+<h3 id="lexical-analysis"><span>Lexical Analysis<span class="heti-spacing"> </span></span>词法分析</h3>
+<blockquote>
+<p>2024.03.07</p>
+</blockquote>
+<p><img alt="image-20240307113231210" src="./编译原理.assets/image-20240307113231210.png" style="zoom:16%;"/></p>
+<h4 id="lexical-token">Lexical Token</h4>
+<p><code>定义</code>：一个字母序列，文法中的基本单元。</p>
+<p>常见的<strong><span class="heti-skip"><span class="heti-spacing"> </span>token<span class="heti-spacing"> </span></span></strong>有：</p>
+<p><img alt="image-20240307101433721" src="./编译原理.assets/image-20240307101433721.png" style="zoom:27%;"/></p>
+<p><em>多数语言中保留词不作为<span><span class="heti-spacing"> </span>identifiers</span>。</em></p>
+<p>常见的<strong><span class="heti-skip"><span class="heti-spacing"> </span>non-token<span class="heti-spacing"> </span></span></strong>有：</p>
+<p><img alt="image-20240307101557052" src="./编译原理.assets/image-20240307101557052.png" style="zoom:27%;"/></p>
+<p>词法分析的示例如下：</p>
+<p><img alt="image-20240307101803168" src="./编译原理.assets/image-20240307101803168.png" style="zoom:18%;"/></p>
+<h4 id="regular-expression">Regular Expression</h4>
+<p><em>使用</em><em>正则表达式</em><em>来描述<span class="heti-skip"><span class="heti-spacing"> </span>token<span class="heti-spacing"> </span></span>规则，再使用 </em><em>DFA</em><em> 实现上述的正则表达式。</em></p>
+<p><em>词法分析阶段不用关心<span class="heti-skip"><span class="heti-spacing"> </span>string<span class="heti-spacing"> </span></span>的含义，只需要关心字符串是否在语言中。</em></p>
+<p><img alt="image-20240307103325675" src="./编译原理.assets/image-20240307103325675.png" style="zoom:25%;"/></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>其中<span class="heti-skip"><span class="heti-spacing"> </span>a |<span class="heti-spacing"> </span></span><span class="arithmatex">\(\epsilon\)</span>与<span class="heti-skip"><span class="heti-spacing"> </span>a |<span class="heti-spacing"> </span></span>等价。</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p><strong>更多的简写：</strong><br/>
+<img alt="image-20240307103937977" src="./编译原理.assets/image-20240307103937977.png" style="zoom:18%;"/><br/>
+简写不会让正则表达式的表达能力增加。<br/></p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p><img alt="image-20240307104153951" src="./编译原理.assets/image-20240307104153951.png" style="zoom:25%;"/><br/>
+第五行表示的是<strong>注释</strong>或<strong>空格、换行</strong>等。<br/></p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>上述的例子中存在歧义，例如 <code>if8</code> 可以解释为<span class="heti-skip"><span class="heti-spacing"> </span>ID<span class="heti-spacing"> </span></span>也可以解释为<span><span class="heti-spacing"> </span>if + 8</span>。<br/>
+现代的编译器会引入最长匹配机制且按照规则的优先级逐条匹配 (if8 解释为 ID)。</p>
+</div>
+</div>
+<h4 id="finite-automata">Finite Automata</h4>
+<p><img alt="image-20240307110214618" src="./编译原理.assets/image-20240307110214618.png" style="zoom:30%;"/></p>
+<p><code>确定性状态机</code>：<strong>no two edges leaving from the same state</strong> are labeled with the same symbol. </p>
+<p>将上述的六个<span class="heti-skip"><span class="heti-spacing"> </span>DFA<span class="heti-spacing"> </span></span>拼接成一个<span><span class="heti-spacing"> </span>DFA</span>：</p>
+<p><img alt="image-20240307110738639" src="./编译原理.assets/image-20240307110738639.png" style="zoom: 25%;"/></p>
+<p>计算机中<span class="heti-skip"><span class="heti-spacing"> </span>DFA<span class="heti-spacing"> </span></span>的实际上通过表格的方式<span class="heti-skip"><span class="heti-spacing"> </span>(<span class="heti-spacing"> </span></span><strong><span class="heti-skip"><span class="heti-spacing"> </span>transition matrix<span class="heti-spacing"> </span></span></strong><span class="heti-skip"><span class="heti-spacing"> </span>)<span class="heti-spacing"> </span></span>实现的。</p>
+<p><img alt="image-20240307111430774" src="./编译原理.assets/image-20240307111430774.png" style="zoom:22%;"/></p>
+<ul>
+<li>每一行表示一个状态，每一列表示读入的<span><span class="heti-spacing"> </span>symbol</span>，存储的值表示读入后跳转到的状态。</li>
+<li><span>0<span class="heti-spacing"> </span></span>表示错误状态。</li>
+</ul>
+<p>额外需要一个矩阵存储每一个状态是否为终态<span><span class="heti-spacing"> </span>(</span><strong><span><span class="heti-spacing"> </span>"finality" array</span></strong><span><span class="heti-spacing"> </span>)</span>，以及其对应的输出标签是什么。</p>
+<ul>
+<li>为实现<span><span class="heti-spacing"> </span>Longest matching</span>，每次遇到可以终止的节点时，先记录当前的分析结果，继续向后扫描，直到无法扫描为止。</li>
+<li>需要 <code>Last-Final</code>，<code>Input-Position-at-Last-Final</code> 两个变量进行记录。</li>
+<li><img alt="image-20240307112415882" src="./编译原理.assets/image-20240307112415882.png" style="zoom:32%;"/></li>
+<li><img alt="image-20240307112910258" src="./编译原理.assets/image-20240307112910258.png" style="zoom:33%;"/></li>
+</ul>
+<h4 id="nondeterministic-finite-automata">Nondeterministic Finite Automata</h4>
+<p><strong>Thompson's Construction</strong></p>
+<blockquote>
+<p>将正则表达式转化为<span><span class="heti-spacing"> </span>NFA</span></p>
+</blockquote>
+<p><img alt="image-20240307114418944" src="./编译原理.assets/image-20240307114418944.png" style="zoom:32%;"/></p>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;">Regular Exp</th>
+<th style="text-align: center;">NFA</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;"><img alt="image-20240307115219803" src="./编译原理.assets/image-20240307115219803.png" style="zoom:33%;"/></td>
+<td style="text-align: center;"><img alt="image-20240307115235538" src="./编译原理.assets/image-20240307115235538.png" style="zoom:33%;"/></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Subset Construction</strong></p>
+<blockquote>
+<p>将<span class="heti-skip"><span class="heti-spacing"> </span>NFA<span class="heti-spacing"> </span></span>转化为<span><span class="heti-spacing"> </span>DFA</span></p>
+</blockquote>
+<p><img alt="image-20240307120207165" src="./编译原理.assets/image-20240307120207165.png" style="zoom:20%;"/></p>
+<ul>
+<li><strong>edge(s, c)</strong>：1.the set of all NFA states reachable by following a single edge with label <em>c</em> from state <em>s</em>.</li>
+<li><strong>closure(S)</strong>：the set of states that can be reached from a state in <em>S</em> without consuming any of the input, that is, by going only through ∊-edges. </li>
+</ul>
+<p><img alt="image-20240307121141938" src="./编译原理.assets/image-20240307121141938.png" style="zoom:30%;"/></p>
+<p>算法思想：</p>
+<p><img alt="image-20240307121201189" src="./编译原理.assets/image-20240307121201189.png" style="zoom:33%;"/></p>
+<p>算法实现：</p>
+<p><img alt="image-20240307121246802" src="./编译原理.assets/image-20240307121246802.png" style="zoom:33%;"/></p>
+<p>算法例子：</p>
+<p><img alt="image-20240307122035132" src="./编译原理.assets/image-20240307122035132.png" style="zoom:18%;"/></p>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;">NFA</th>
+<th style="text-align: center;">DFA</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;"><img alt="image-20240307115235538" src="./编译原理.assets/image-20240307115235538.png" style="zoom:30%;"/></td>
+<td style="text-align: center;"><img alt="image-20240307122243841" src="./编译原理.assets/image-20240307122243841.png" style="zoom:20%;"/></td>
+</tr>
+</tbody>
+</table>
+<p>上述右图的部分等价状态可以合并，以缩小<span><span class="heti-spacing"> </span>DFA</span>。但有部分的等价状态无法消除。</p>
+<p><img alt="image-20240307122759170" src="./编译原理.assets/image-20240307122759170.png" style="zoom: 23%;"/></p>
+<p>上述的算法总体思想为找到非等价的状态，举例如下：</p>
+<p><img alt="image-20240307144035741" src="./编译原理.assets/image-20240307144035741.png" style="zoom:26%;"/></p>
+<h4 id="lex-a-lexical-analyzer-generator">Lex: A Lexical Analyzer Generator</h4>
+<p><span>Lex<span class="heti-spacing"> </span></span>是一个程序，</p>
+<ul>
+<li>输入：a text file containing regular expressions, together with the actions to be taken when each expression is matched.</li>
+<li><img alt="image-20240314100840000" src="./编译原理.assets/image-20240314100840000.png" style="zoom:25%;"/></li>
+<li>输出：Contains C source code defining a procedure <em>yylex</em> that is <em>a</em> table-driven implementation of a DFA corresponding to the regular expressions of the input file, and that operates like a <em>getToken</em> procedure.</li>
+</ul>
+<h3 id="syntax-analysis"><span>Syntax analysis<span class="heti-spacing"> </span></span>语法分析</h3>
+<blockquote>
+<p>2024.03.14</p>
+</blockquote>
+<p><img alt="image-20240314101147943" src="./编译原理.assets/image-20240314101147943.png" style="zoom:33%;"/></p>
+<h4 id="cfg"><span>CFG<span class="heti-spacing"> </span></span>上下文无关文法</h4>
+<p>正则表达式的无法表达括号匹配等<span class="heti-skip"><span class="heti-spacing"> </span>Recursive Structure<span class="heti-spacing"> </span></span>规则。</p>
+<p><span>CFG<span class="heti-spacing"> </span></span>在进行替换时不需要关心<span class="heti-skip"><span class="heti-spacing"> </span>non-terminal symbol<span class="heti-spacing"> </span></span>的左右<span class="heti-skip"><span class="heti-spacing"> </span>(<span class="heti-spacing"> </span></span>上下文<span class="heti-skip"><span class="heti-spacing"> </span>)<span class="heti-spacing"> </span></span>如何，根据规则进行替换即可。</p>
+<p>一个不含分支语句的程序的<span class="heti-skip"><span class="heti-spacing"> </span>CFG<span class="heti-spacing"> </span></span>可以表达如下：</p>
+<p><img alt="image-20240314103324107" src="./编译原理.assets/image-20240314103324107.png" style="zoom:33%;"/></p>
+<p>其中<span class="heti-skip"><span class="heti-spacing"> </span>S<span class="heti-spacing"> </span></span>表示语句，可以使用分号顺序连接。<span>E<span class="heti-spacing"> </span></span>为数字或变量。</p>
+<p>在判断程序是否正确时，主要思路为判断程序是否有语法错误。</p>
+<p><img alt="image-20240314104017211" src="./编译原理.assets/image-20240314104017211.png" style="zoom:33%;"/></p>
+<p>上述推导遵循了最左推导<span><span class="heti-spacing"> </span>left-most derivation</span>，可以根据次生成<span><span class="heti-spacing"> </span>parsing tree</span>。某些情况下最左和最右推导等价<span class="heti-skip"><span class="heti-spacing"> </span>(<span class="heti-spacing"> </span></span>当文法没有歧义时<span><span class="heti-spacing"> </span>)</span>。</p>
+<p><img alt="image-20240314104507327" src="./编译原理.assets/image-20240314104507327.png" style="zoom:33%;"/></p>
+<p>一颗<span class="heti-skip"><span class="heti-spacing"> </span>parsing tree<span class="heti-spacing"> </span></span>可能对应多个推导关系。</p>
+<p><strong>歧义</strong></p>
+<p><img alt="image-20240314105036328" src="./编译原理.assets/image-20240314105036328.png" style="zoom:33%;"/></p>
+<p>需要对生成的规则进行更改以消除歧义。规定乘法优先级高于加法，并统一进行左结合。</p>
+<p><img alt="image-20240314110711697" src="./编译原理.assets/image-20240314110711697.png" style="zoom:33%;"/></p>
+<p>为识别是否已经读到文件的末尾，引入<span><span class="heti-spacing"> </span>$ (EOF)</span>。在规则中加入<span><span class="heti-spacing"> </span>$S\rightarrow E $ $</span>。</p>
+<h4 id="top-down-parsing">Top-Down Parsing</h4>
+<p><strong>Recursive Descent Parsing</strong>: parses <strong>LL(1)</strong> grammars ： <strong>L</strong>eft-to-right parse; <strong>L</strong>eftmost-derivation; <strong>1</strong>symbol lookahead.</p>
+<p>根据读取到的<span><span class="heti-spacing"> </span>token</span>，从左到右读取，尝试寻找规则进行匹配进行<span class="heti-skip"><span class="heti-spacing"> </span>parsing tree<span class="heti-spacing"> </span></span>的构建。</p>
+<p><img alt="image-20240314111915045" src="./编译原理.assets/image-20240314111915045.png" style="zoom:33%;"/></p>
+<div class="highlight"><table class="highlighttable"><tr><th class="filename" colspan="2"><span class="filename">C++</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">enum</span><span class="w"> </span><span class="nc">token</span><span class="w"> </span><span class="p">{</span><span class="n">IF</span><span class="p">,</span><span class="w"> </span><span class="n">THEN</span><span class="p">,</span><span class="w"> </span><span class="n">ELSE</span><span class="p">,</span><span class="w"> </span><span class="n">BEGIN</span><span class="p">,</span><span class="w"> </span><span class="n">END</span><span class="p">,</span><span class="w"> </span><span class="n">PRINT</span><span class="p">,</span><span class="w"> </span><span class="n">SEMI</span><span class="p">,</span><span class="w"> </span><span class="n">NUM</span><span class="p">,</span><span class="w"> </span><span class="n">EQ</span><span class="p">};</span>
+<span class="k">extern</span><span class="w"> </span><span class="k">enum</span><span class="w"> </span><span class="nc">token</span><span class="w"> </span><span class="n">getToken</span><span class="p">(</span><span class="kt">void</span><span class="p">);</span>
+<span class="k">enum</span><span class="w"> </span><span class="nc">token</span><span class="w"> </span><span class="n">tok</span><span class="p">;</span><span class="w"> </span>
+<span class="kt">void</span><span class="w"> </span><span class="nf">advance</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="n">tok</span><span class="o">=</span><span class="n">getToken</span><span class="p">();}</span><span class="w"> </span>
+<span class="kt">void</span><span class="w"> </span><span class="nf">eat</span><span class="p">(</span><span class="k">enum</span><span class="w"> </span><span class="nc">token</span><span class="w"> </span><span class="n">t</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">tok</span><span class="o">==</span><span class="n">t</span><span class="p">)</span><span class="w"> </span><span class="n">advance</span><span class="p">();</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="n">error</span><span class="p">();}</span>
+<span class="kt">void</span><span class="w"> </span><span class="nf">S</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">switch</span><span class="p">(</span><span class="n">tok</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span>
+<span class="w">    </span><span class="k">case</span><span class="w"> </span><span class="no">IF</span><span class="p">:</span><span class="w"> </span><span class="n">eat</span><span class="p">(</span><span class="n">IF</span><span class="p">);</span><span class="w"> </span><span class="n">E</span><span class="p">();</span><span class="w"> </span><span class="n">eat</span><span class="p">(</span><span class="n">THEN</span><span class="p">);</span><span class="w"> </span><span class="n">S</span><span class="p">();</span><span class="w"> </span><span class="n">eat</span><span class="p">(</span><span class="n">ELSE</span><span class="p">);</span><span class="w"> </span><span class="n">S</span><span class="p">();</span><span class="w"> </span><span class="k">break</span><span class="p">;</span><span class="w"> </span>
+<span class="w">    </span><span class="k">case</span><span class="w"> </span><span class="no">BEGIN</span><span class="p">:</span><span class="w"> </span><span class="n">eat</span><span class="p">(</span><span class="n">BEGIN</span><span class="p">);</span><span class="w"> </span><span class="n">S</span><span class="p">();</span><span class="w"> </span><span class="n">L</span><span class="p">();</span><span class="w"> </span><span class="k">break</span><span class="p">;</span><span class="w"> </span>
+<span class="w">    </span><span class="k">case</span><span class="w"> </span><span class="no">PRINT</span><span class="p">:</span><span class="w"> </span><span class="n">eat</span><span class="p">(</span><span class="n">PRINT</span><span class="p">);</span><span class="w"> </span><span class="n">E</span><span class="p">();</span><span class="w"> </span><span class="k">break</span><span class="p">;</span><span class="w"> </span>
+<span class="w">    </span><span class="k">default</span><span class="o">:</span><span class="w"> </span><span class="n">error</span><span class="p">();</span><span class="w"> </span><span class="p">}}</span>
+<span class="kt">void</span><span class="w"> </span><span class="nf">L</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">switch</span><span class="p">(</span><span class="n">tok</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">case</span><span class="w"> </span><span class="no">END</span><span class="p">:</span><span class="w"> </span><span class="n">eat</span><span class="p">(</span><span class="n">END</span><span class="p">);</span><span class="w"> </span><span class="k">break</span><span class="p">;</span>
+<span class="w">    </span><span class="k">case</span><span class="w"> </span><span class="no">SEMI</span><span class="p">:</span><span class="w"> </span><span class="n">eat</span><span class="p">(</span><span class="n">SEMI</span><span class="p">);</span><span class="w"> </span><span class="n">S</span><span class="p">();</span><span class="w"> </span><span class="n">L</span><span class="p">();</span><span class="w"> </span><span class="k">break</span><span class="p">;</span>
+<span class="w">    </span><span class="k">default</span><span class="o">:</span><span class="w"> </span><span class="n">error</span><span class="p">();</span><span class="w"> </span><span class="p">}}</span>
+<span class="kt">void</span><span class="w"> </span><span class="nf">E</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">eat</span><span class="p">(</span><span class="n">NUM</span><span class="p">);</span><span class="w"> </span><span class="n">eat</span><span class="p">(</span><span class="n">EQ</span><span class="p">);</span><span class="w"> </span><span class="n">eat</span><span class="p">(</span><span class="n">NUM</span><span class="p">);</span><span class="w"> </span><span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<p>上述的实现主要依靠替换后的第一个<span class="heti-skip"><span class="heti-spacing"> </span>symbol<span class="heti-spacing"> </span></span>进行规则的选择，但并不适用与所有的语法。</p>
+<p><strong>Predictive Parsing</strong></p>
+<p>对于无法通过第一个<span class="heti-skip"><span class="heti-spacing"> </span>symbol<span class="heti-spacing"> </span></span>进行判断<span class="heti-skip"><span class="heti-spacing"> </span>(<span class="heti-spacing"> </span></span>例如都是<span><span class="heti-spacing"> </span>non-terminal)</span>，基于一定的规则进行计算首先派生出的<span><span class="heti-spacing"> </span>terminal symbol</span>，再进行判断。</p>
+<p>对于例如 <span class="arithmatex">\(Z\rightarrow XY\)</span> 的规则，首先需要考虑的是<span class="heti-skip"><span class="heti-spacing"> </span>X<span class="heti-spacing"> </span></span>在派生之后会产生的第一个<span class="heti-skip"><span class="heti-spacing"> </span>terminal<span class="heti-spacing"> </span></span>符号<span><span class="heti-spacing"> </span>(First)</span>。但需要考虑到<span class="heti-skip"><span class="heti-spacing"> </span>X<span class="heti-spacing"> </span></span>可能派生出空串<span class="arithmatex">\(\varepsilon\)</span><span><span class="heti-spacing"> </span>(Nullable)</span>，所以需要考虑<span class="heti-skip"><span class="heti-spacing"> </span>Y<span class="heti-spacing"> </span></span>可能派生出的第一个<span><span class="heti-spacing"> </span>terminal</span>。但<span class="heti-skip"><span class="heti-spacing"> </span>Y<span class="heti-spacing"> </span></span>若也可能派生出<span class="arithmatex">\(\varepsilon\)</span><span class="heti-skip"><span class="heti-spacing"> </span>,<span class="heti-spacing"> </span></span>则需要考虑紧跟在<span class="heti-skip"><span class="heti-spacing"> </span>Y<span class="heti-spacing"> </span></span>之后的<span><span class="heti-spacing"> </span>terminal (Follow)</span>。</p>
+<p><span class="arithmatex">\(\gamma\rightarrow^* t\beta\)</span>，其中<span class="heti-skip"><span class="heti-spacing"> </span>t<span class="heti-spacing"> </span></span>为<span><span class="heti-spacing"> </span>terminal symbol</span>。<span class="arithmatex">\(\gamma\)</span> 和 <span class="arithmatex">\(\beta\)</span> 表示任意的字符串，<span class="arithmatex">\(t\in First(\gamma)\)</span>。</p>
+<p><span class="arithmatex">\(X \rightarrow^* \alpha Xt \beta\)</span>，<span class="arithmatex">\(\alpha\)</span> 和 <span class="arithmatex">\(\beta\)</span> 表示任意的字符串，<span class="arithmatex">\(t\in Follow(X)\)</span>。</p>
+<p>计算<span class="heti-skip"><span class="heti-spacing"> </span>Nullable<span class="heti-spacing"> </span></span>算法：</p>
+<div class="highlight"><table class="highlighttable"><tr><th class="filename" colspan="2"><span class="filename">C</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">for</span><span class="w"> </span><span class="n">each</span><span class="w"> </span><span class="n">symbol</span><span class="w"> </span><span class="n">X</span><span class="o">:</span>
+<span class="w">    </span><span class="n">Nullable</span><span class="p">(</span><span class="n">X</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">False</span>
+<span class="n">repeat</span>
+<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="n">each</span><span class="w"> </span><span class="n">production</span><span class="w"> </span><span class="n">X</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">Y1</span><span class="w"> </span><span class="n">Y2</span><span class="w"> </span><span class="err">…</span><span class="w"> </span><span class="n">Yk</span><span class="o">:</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="n">Nullable</span><span class="p">(</span><span class="n">Yi</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">True</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">all</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="n">k</span><span class="o">:</span>
+<span class="w">            </span><span class="n">Nullable</span><span class="p">(</span><span class="n">X</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">True</span>
+<span class="n">until</span><span class="w"> </span><span class="n">Nullable</span><span class="w"> </span><span class="n">did</span><span class="w"> </span><span class="n">not</span><span class="w"> </span><span class="n">change</span><span class="w"> </span><span class="n">in</span><span class="w"> </span><span class="n">this</span><span class="w"> </span><span class="n">iteration</span>
+</code></pre></div></td></tr></table></div>
+<p>需要注意的是，每一轮都需要遍历所有的规则，每一轮循环结束都需要和前一次的结果进行比较，直到没有变化后结束循环。</p>
+<p><img alt="image-20240314190711432" src="./编译原理.assets/image-20240314190711432.png" style="zoom:30%;"/></p>
+<p><span>First<span class="heti-spacing"> </span></span>和<span class="heti-skip"><span class="heti-spacing"> </span>Follow<span class="heti-spacing"> </span></span>的算法如下：</p>
+<p><img alt="image-20240314190942745" src="./编译原理.assets/image-20240314190942745.png" style="zoom:33%;"/></p>
+<p>举例如下：</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;">First-1</th>
+<th style="text-align: center;">First-2</th>
+<th style="text-align: center;">First-3</th>
+<th style="text-align: center;">First-4</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;"><img alt="image-20240314191145302" src="./编译原理.assets/image-20240314191145302.png" style="zoom:25%;"/></td>
+<td style="text-align: center;"><img alt="image-20240314191203858" src="./编译原理.assets/image-20240314191203858.png" style="zoom:25%;"/></td>
+<td style="text-align: center;"><img alt="image-20240314191230625" src="./编译原理.assets/image-20240314191230625.png" style="zoom:25%;"/></td>
+<td style="text-align: center;"><img alt="image-20240314191249938" src="./编译原理.assets/image-20240314191249938.png" style="zoom:25%;"/></td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;">Follow-1</th>
+<th style="text-align: center;">Follow-2</th>
+<th style="text-align: center;">Follow-3</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;"><img alt="image-20240314191510728" src="./编译原理.assets/image-20240314191510728.png" style="zoom:33%;"/></td>
+<td style="text-align: center;"><img alt="image-20240314191527783" src="./编译原理.assets/image-20240314191527783.png" style="zoom:33%;"/></td>
+<td style="text-align: center;"><img alt="image-20240314191552450" src="./编译原理.assets/image-20240314191552450.png" style="zoom:33%;"/></td>
+</tr>
+</tbody>
+</table>
+<p>需要额外注意的是 <span class="arithmatex">\(X\rightarrow Y\)</span> 规则会使<span class="heti-skip"><span class="heti-spacing"> </span>Follow(Y)<span class="heti-spacing"> </span></span>和<span class="heti-skip"><span class="heti-spacing"> </span>Follow(X)<span class="heti-spacing"> </span></span>出现重合。最终可以得到如下表格：</p>
+<p><img alt="image-20240314192039713" src="./编译原理.assets/image-20240314192039713.png" style="zoom:33%;"/></p>
+<p>需要将上述的表格转化为一下的表格，以指明使用那条规则进行<span class="heti-skip"><span class="heti-spacing"> </span>parsing tree<span class="heti-spacing"> </span></span>的构建：</p>
+<p><img alt="image-20240314192213690" src="./编译原理.assets/image-20240314192213690.png" style="zoom:30%;"/></p>
+<p>构建的算法如下：</p>
+<ul>
+<li>if T <span class="arithmatex">\(\in\)</span> First(<span class="arithmatex">\(\gamma\)</span>) then enter <span class="arithmatex">\(X\rightarrow \gamma\)</span> in row X, col T.</li>
+<li>if <span class="arithmatex">\(\gamma\)</span> is Nullable and T <span class="arithmatex">\(\in\)</span> Follow(X) then enter <span class="arithmatex">\(X\rightarrow \gamma\)</span> in row X, col T.</li>
+</ul>
+<p>上述的表格指的是，在自顶向下派生<span class="heti-skip"><span class="heti-spacing"> </span>non-terminal<span class="heti-spacing"> </span></span>时，读到词法分析得到的序列中的某个<span class="heti-skip"><span class="heti-spacing"> </span>symbol<span class="heti-spacing"> </span></span>时需要选择的规则。若是查表得到了空格，则表示出现了语法错误。</p>
+<p>还需要注意上述的表格还存在多条规则一个空格的情况，这可能由两种情况导致：</p>
+<ul>
+<li>Left-Recursive：<span class="arithmatex">\(A\rightarrow A\alpha,\,A\rightarrow\beta\)</span>.</li>
+<li>修改后：<span class="arithmatex">\(A\rightarrow\beta A',\,A'\rightarrow\alpha A', A'\rightarrow \varepsilon\)</span>.</li>
+<li>Left-Left Factoring：修改如下：</li>
+<li><img alt="image-20240314194155167" src="./编译原理.assets/image-20240314194155167.png" style="zoom:33%;"/></li>
+</ul>
+<p>举例如下：</p>
+<p><img alt="image-20240314194720103" src="./编译原理.assets/image-20240314194720103.png" style="zoom:30%;"/></p>
+<p><strong>错误恢复</strong></p>
+<p>一般来说，在遇到错误后，需要从错误中恢复过来继续进行语法分析，以分析得到更多的潜在的语法错误。</p>
+<p>常见的做法如下：</p>
+<div class="highlight"><table class="highlighttable"><tr><th class="filename" colspan="2"><span class="filename">C++</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kt">int</span><span class="w"> </span><span class="n">Tprime_follow</span><span class="p">[]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="n">PLUS</span><span class="p">,</span><span class="w"> </span><span class="n">RPAREN</span><span class="p">,</span><span class="w"> </span><span class="n">EOF</span><span class="p">};</span><span class="w"> </span>
+<span class="kt">void</span><span class="w"> </span><span class="nf">Tprime</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"> </span>
+<span class="w">    </span><span class="k">switch</span><span class="w"> </span><span class="p">(</span><span class="n">tok</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span>
+<span class="w">        </span><span class="k">case</span><span class="w"> </span><span class="no">PLUS</span><span class="p">:</span><span class="w"> </span><span class="k">break</span><span class="p">;</span><span class="w"> </span>
+<span class="w">        </span><span class="k">case</span><span class="w"> </span><span class="no">TIMES</span><span class="p">:</span><span class="w"> </span><span class="n">eat</span><span class="p">(</span><span class="n">TIMES</span><span class="p">);</span><span class="w"> </span><span class="n">F</span><span class="p">();</span><span class="w"> </span><span class="n">Tprime</span><span class="p">();</span><span class="w"> </span><span class="k">break</span><span class="p">;</span><span class="w"> </span>
+<span class="w">        </span><span class="k">case</span><span class="w"> </span><span class="no">RPAREN</span><span class="p">:</span><span class="w"> </span><span class="k">break</span><span class="p">;</span><span class="w"> </span>
+<span class="w">        </span><span class="k">case</span><span class="w"> </span><span class="no">EOF</span><span class="p">:</span><span class="w"> </span><span class="k">break</span><span class="p">;</span><span class="w"> </span>
+<span class="w">        </span><span class="k">default</span><span class="o">:</span><span class="w"> </span><span class="n">print</span><span class="p">(</span><span class="s">"expected +, *, right-paren, or end-of-file"</span><span class="p">);</span><span class="w"> </span>
+<span class="w">        </span><span class="n">skipto</span><span class="p">(</span><span class="n">Tprime_follow</span><span class="p">);</span><span class="w"> </span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<p><strong>LL(k)</strong></p>
+<p><span>k<span class="heti-spacing"> </span></span>表示在选择派生规则时需要根据几个<span class="heti-skip"><span class="heti-spacing"> </span>input<span class="heti-spacing"> </span></span>才能判定。<span>LL(1)<span class="heti-spacing"> </span></span>就表示一个<span class="heti-skip"><span class="heti-spacing"> </span>1<span class="heti-spacing"> </span></span>个<span class="heti-skip"><span class="heti-spacing"> </span>token<span class="heti-spacing"> </span></span>就能无歧义的进行规则选择。</p>
+<p><mark>every LL(k) grammar is an LL(k+n) grammar, for any n.</mark></p>
+<p>所以在例如在证明一个<span class="heti-skip"><span class="heti-spacing"> </span>grammar<span class="heti-spacing"> </span></span>是<span class="heti-skip"><span class="heti-spacing"> </span>LL(3)<span class="heti-spacing"> </span></span>时，可以先尝试证明其为<span><span class="heti-spacing"> </span>LL(1).</span></p>
+<h4 id="lrk-parsing">LR(k) parsing</h4>
+<p>相比<span><span class="heti-spacing"> </span>LL(k)</span>，不急于做匹配，直到<span><span class="heti-spacing"> </span>input tokens corresponding to the</span><strong><span><span class="heti-spacing"> </span>entire right-hand side</span></strong><span><span class="heti-spacing"> </span>of the production.</span> </p>
+<ul>
+<li>特征：<strong>L</strong>eft-to-right parse、<strong>R</strong>ightmost derivation、<strong>k</strong>-token lookahead。</li>
+<li>是一种 <code>bottom-up Parsing</code>。</li>
+<li>不断将产生式的右部替换为左部。</li>
+</ul>
+<p>举例如下：</p>
+<p><img alt="image-20240321110518813" src="./编译原理.assets/image-20240321110518813.png" style="zoom:33%;"/></p>
+<p>从以上的过程可以看出以上的过程自下往上看实际上为最右展开。</p>
+<p><img alt="image-20240321111511601" src="./编译原理.assets/image-20240321111511601.png" style="zoom:33%;"/></p>
+<p>分为<span class="heti-skip"><span class="heti-spacing"> </span>shift<span class="heti-spacing"> </span></span>和<span class="heti-skip"><span class="heti-spacing"> </span>reduce<span class="heti-spacing"> </span></span>两个过程。</p>
+<ul>
+<li>
+<p><strong>shift</strong>: push next input onto top of stack</p>
+</li>
+<li>
+<p><strong>reduce R</strong>:  </p>
+</li>
+<li>top of stack should match RHS of rule R (e.g., X -&gt; A B C)</li>
+<li>pop the RHS from the top of stack (e.g., pop C B A)</li>
+<li>
+<p>push the LHS onto the stack (e.g., push X)</p>
+</li>
+<li>
+<p><strong>error</strong></p>
+</li>
+<li>
+<p><strong>accept:</strong> shift $ and can reduce what remains on stack </p>
+</li>
+</ul>
+<p><strong>LR(0) Parsing</strong></p>
+<p>只需要在<span class="heti-skip"><span class="heti-spacing"> </span>state stack<span class="heti-spacing"> </span></span>中看就可以判断。</p>
+<p>可以使用<span class="heti-skip"><span class="heti-spacing"> </span>DFA<span class="heti-spacing"> </span></span>来确定是否<span><span class="heti-spacing"> </span>reduce</span>。</p>
+<p><img alt="image-20240321112902898" src="./编译原理.assets/image-20240321112902898.png" style="zoom:33%;"/></p>
+<ul>
+<li>
+<p><strong>.</strong> : the current position of the parser</p>
+</li>
+<li>
+<p>start with S’ -&gt; . S $: stack should be empty and the input is expected to be a complete S-sentence followed by $</p>
+</li>
+<li>A -&gt; 𝛼 . β: LR(0) item</li>
+<li>means the parser has processed 𝛼 and expects to see β next.</li>
+</ul>
+<p>接下来将<span class="heti-skip"><span class="heti-spacing"> </span>NFA<span class="heti-spacing"> </span></span>转化为<span><span class="heti-spacing"> </span>DFA</span>。</p>
+<p><img alt="image-20240321113113370" src="./编译原理.assets/image-20240321113113370.png" style="zoom:33%;"/></p>
+<p>具体算法如下：</p>
+<p><img alt="image-20240321114549316" src="./编译原理.assets/image-20240321114549316.png" style="zoom:22%;"/></p>
+<p>应用上述的算法，对于<span><span class="heti-spacing"> </span>grammar</span>：</p>
+<p><strong>S’</strong> <strong>-&gt;</strong> <strong>S$</strong> <strong>S</strong> <strong>-&gt;</strong> <strong>(</strong> <strong>L</strong> <strong>)</strong> <strong>S</strong> <strong>-&gt;</strong> <strong>x</strong> <strong>L</strong> <strong>-&gt;</strong> <strong>S</strong> <strong>L</strong> <strong>-&gt;</strong> <strong>L</strong> <strong>,</strong> <strong>S</strong></p>
+<p><img alt="image-20240321115755179" src="./编译原理.assets/image-20240321115755179.png" style="zoom:33%;"/></p>
+<table>
+<thead>
+<tr>
+<th><strong>Stack</strong> <strong>(states)</strong></th>
+<th><strong>Stack</strong> <strong>(symbols)</strong></th>
+<th><strong>Input</strong></th>
+<th><strong>Action</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>1</strong></td>
+<td></td>
+<td><strong>(</strong> <strong>x</strong> <strong>)</strong> <strong>$</strong></td>
+<td><strong>shift</strong> <strong>3</strong></td>
+</tr>
+<tr>
+<td><strong>1,</strong> <strong>3</strong></td>
+<td><strong>(</strong></td>
+<td><strong>x</strong> <strong>)</strong> <strong>$</strong></td>
+<td><strong>shift</strong> <strong>2</strong></td>
+</tr>
+<tr>
+<td><strong>1,</strong> <strong>3,</strong> <strong>2</strong></td>
+<td><strong>(</strong> <strong>x</strong></td>
+<td><strong>)</strong> <strong>$</strong></td>
+<td><strong>reduce</strong> <strong>2</strong> <strong>S</strong> <strong>-&gt;</strong> <strong>x</strong></td>
+</tr>
+<tr>
+<td><strong>1,</strong> <strong>3</strong></td>
+<td><strong>(</strong> <strong>S</strong></td>
+<td><strong>)</strong> <strong>$</strong></td>
+<td><strong>goto</strong> <strong>7</strong></td>
+</tr>
+<tr>
+<td><strong>1,</strong> <strong>3,</strong> <strong>7</strong></td>
+<td><strong>(</strong> <strong>S</strong></td>
+<td><strong>)</strong> <strong>$</strong></td>
+<td><strong>reduce</strong> <strong>3</strong> <strong>L</strong> <strong>-&gt;</strong> <strong>S</strong></td>
+</tr>
+<tr>
+<td><strong>1,</strong> <strong>3</strong></td>
+<td><strong>(</strong> <strong>L</strong></td>
+<td><strong>)</strong> <strong>$</strong></td>
+<td><strong>goto</strong> <strong>5</strong></td>
+</tr>
+<tr>
+<td><strong>1,</strong> <strong>3,</strong> <strong>5</strong></td>
+<td><strong>(</strong> <strong>L</strong></td>
+<td><strong>)</strong> <strong>$</strong></td>
+<td><strong>shift</strong> <strong>6</strong></td>
+</tr>
+<tr>
+<td><strong>1,</strong> <strong>3,</strong> <strong>5,</strong> <strong>6</strong></td>
+<td><strong>(</strong> <strong>L</strong> <strong>)</strong></td>
+<td><strong>$</strong></td>
+<td><strong>reduce</strong> <strong>1</strong> <strong>S</strong> <strong>-&gt;</strong> <strong>(</strong> <strong>L</strong> <strong>)</strong></td>
+</tr>
+<tr>
+<td><strong>1</strong></td>
+<td><strong>S</strong></td>
+<td><strong>$</strong></td>
+<td><strong>goto</strong> <strong>4</strong></td>
+</tr>
+<tr>
+<td><strong>1,</strong> <strong>4</strong></td>
+<td><strong>S</strong></td>
+<td><strong>$</strong></td>
+<td><strong>accept</strong></td>
+</tr>
+</tbody>
+</table>
+<p>可以得到以下的<span><span class="heti-spacing"> </span>parsing table</span>：</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th><strong>(</strong></th>
+<th><strong>)</strong></th>
+<th><strong>x</strong></th>
+<th><strong>,</strong></th>
+<th><strong>$</strong></th>
+<th><strong>S</strong></th>
+<th><strong>L</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>1</strong></td>
+<td><strong>s3</strong></td>
+<td></td>
+<td><strong>s2</strong></td>
+<td></td>
+<td></td>
+<td><strong>g4</strong></td>
+<td></td>
+</tr>
+<tr>
+<td><strong>2</strong></td>
+<td><strong>r2</strong></td>
+<td><strong>r2</strong></td>
+<td><strong>r2</strong></td>
+<td><strong>r2</strong></td>
+<td><strong>r2</strong></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><strong>3</strong></td>
+<td><strong>s3</strong></td>
+<td></td>
+<td><strong>s2</strong></td>
+<td></td>
+<td></td>
+<td><strong>g7</strong></td>
+<td><strong>g5</strong></td>
+</tr>
+<tr>
+<td><strong>4</strong></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td><strong>a</strong></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><strong>5</strong></td>
+<td></td>
+<td><strong>s6</strong></td>
+<td></td>
+<td><strong>s8</strong></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><strong>6</strong></td>
+<td><strong>r1</strong></td>
+<td><strong>r1</strong></td>
+<td><strong>r1</strong></td>
+<td><strong>r1</strong></td>
+<td><strong>r1</strong></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><strong>7</strong></td>
+<td><strong>r3</strong></td>
+<td><strong>r3</strong></td>
+<td><strong>r3</strong></td>
+<td><strong>r3</strong></td>
+<td><strong>r3</strong></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><strong>8</strong></td>
+<td><strong>s3</strong></td>
+<td></td>
+<td><strong>s2</strong></td>
+<td></td>
+<td></td>
+<td><strong>g9</strong></td>
+<td></td>
+</tr>
+<tr>
+<td><strong>9</strong></td>
+<td><strong>r4</strong></td>
+<td><strong>r4</strong></td>
+<td><strong>r4</strong></td>
+<td><strong>r4</strong></td>
+<td><strong>r4</strong></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>具体的操作规则如下：</p>
+<ul>
+<li><strong>Shift</strong>: For edge labeled with terminal t and from state i to state n: </li>
+<li>
+<p>T[i, t] = <strong>sn</strong> (shift n)</p>
+</li>
+<li>
+<p><strong>Goto</strong>: For edge labeled with non-terminal X and from state i to state n: </p>
+</li>
+<li>
+<p>T[i, X] = <strong>gn</strong> (goto n)</p>
+</li>
+<li>
+<p><strong>Reduce:</strong> For item in a state <strong>i</strong> with dot at the end (e.g., <em>X</em> <em>-&gt;</em> <em>A</em> <em>…</em> <em>C</em> <em>.</em>):</p>
+</li>
+<li>
+<p>T[i, each terminal] = <strong>rk</strong> (reduce k)</p>
+</li>
+<li>
+<p>k is the <strong>index</strong> <strong>of</strong> <strong>this</strong> <strong>production</strong></p>
+</li>
+<li>
+<p><strong>Accept:</strong> For each state i containing </p>
+</li>
+<li>
+<p>S’ -&gt; S . $:</p>
+</li>
+<li>
+<p>T[i, $] = <strong>accept</strong></p>
+</li>
+</ul>
+<p><strong>Simple LR Parsing</strong></p>
+<p>可能会存在<span class="heti-skip"><span class="heti-spacing"> </span>shift-reduce<span class="heti-spacing"> </span></span>冲突，即无法判断是否需要<span><span class="heti-spacing"> </span>reduce</span>。</p>
+<p>引入<span class="heti-skip"><span class="heti-spacing"> </span>SLR<span class="heti-spacing"> </span></span>方法，基本思想是计算<span class="heti-skip"><span class="heti-spacing"> </span>Follow<span class="heti-spacing"> </span></span>集合：</p>
+<div class="highlight"><table class="highlighttable"><tr><th class="filename" colspan="2"><span class="filename">C</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span>
+<span class="normal">8</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">R</span><span class="w"> </span><span class="err">←</span><span class="w"> </span><span class="p">{}</span><span class="w"> </span>
+<span class="k">for</span><span class="w"> </span><span class="n">each</span><span class="w"> </span><span class="n">state</span><span class="w"> </span><span class="n">I</span><span class="w"> </span><span class="n">in</span><span class="w"> </span><span class="n">T</span><span class="w"> </span>
+<span class="w">     </span><span class="k">for</span><span class="w"> </span><span class="n">each</span><span class="w"> </span><span class="n">item</span><span class="w"> </span><span class="n">A</span><span class="w"> </span><span class="err">→</span><span class="w"> </span><span class="n">α</span><span class="p">.</span><span class="w"> </span><span class="n">in</span><span class="w"> </span><span class="n">I</span><span class="w"> </span>
+<span class="w">           </span><span class="k">for</span><span class="w"> </span><span class="n">each</span><span class="w"> </span><span class="n">token</span><span class="w"> </span><span class="n">X</span><span class="w"> </span><span class="n">in</span><span class="w"> </span><span class="n">FOLLOW</span><span class="p">(</span><span class="n">A</span><span class="p">)</span><span class="w"> </span>
+<span class="w">              </span><span class="n">R</span><span class="w"> </span><span class="err">←</span><span class="w"> </span><span class="n">R</span><span class="w"> </span><span class="err">∪</span><span class="w"> </span><span class="p">{(</span><span class="n">I</span><span class="p">,</span><span class="w"> </span><span class="n">X</span><span class="p">,</span><span class="w"> </span><span class="n">A</span><span class="w"> </span><span class="err">→</span><span class="w"> </span><span class="n">α</span><span class="p">)}</span><span class="w"> </span>
+<span class="nl">I</span><span class="p">:</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">row</span>
+<span class="nl">X</span><span class="p">:</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">column</span>
+<span class="n">A</span><span class="w"> </span><span class="err">→</span><span class="w"> </span><span class="n">α</span><span class="o">:</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">production</span>
+</code></pre></div></td></tr></table></div>
+<p><strong>LR(1) Parsing</strong></p>
+<p>需要往后看一个<span class="heti-skip"><span class="heti-spacing"> </span>symbol<span class="heti-spacing"> </span></span>以辅助动作选择。</p>
+<ul>
+<li><span>(<span class="heti-spacing"> </span></span><span class="arithmatex">\(A \rightarrow \alpha.\beta\)</span><span>, x), x<span class="heti-spacing"> </span></span>表示 <span class="arithmatex">\(\beta\)</span> 处理完之后，将看到的<span><span class="heti-spacing"> </span>symbol</span>。</li>
+</ul>
+<div class="highlight"><table class="highlighttable"><tr><th class="filename" colspan="2"><span class="filename">C</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">Closure</span><span class="p">(</span><span class="n">I</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>
+<span class="w">    </span><span class="n">repeat</span><span class="w"> </span>
+<span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="n">any</span><span class="w"> </span><span class="n">item</span><span class="w"> </span><span class="p">(</span><span class="n">A</span><span class="w"> </span><span class="err">→</span><span class="w"> </span><span class="n">α</span><span class="p">.</span><span class="n">Xβ</span><span class="p">,</span><span class="w"> </span><span class="n">z</span><span class="p">)</span><span class="w"> </span><span class="n">in</span><span class="w"> </span><span class="n">I</span><span class="w"> </span>
+<span class="w">           </span><span class="k">for</span><span class="w"> </span><span class="n">any</span><span class="w"> </span><span class="n">production</span><span class="w"> </span><span class="n">X</span><span class="w"> </span><span class="err">→</span><span class="w"> </span><span class="n">γ</span><span class="w"> </span>
+<span class="w">               </span><span class="k">for</span><span class="w"> </span><span class="n">any</span><span class="w"> </span><span class="n">w</span><span class="w"> </span><span class="err">∈</span><span class="w"> </span><span class="n">FIRST</span><span class="p">(</span><span class="n">βz</span><span class="p">)</span><span class="w"> </span>
+<span class="w">                  </span><span class="n">I</span><span class="w"> </span><span class="err">←</span><span class="w"> </span><span class="n">I</span><span class="w"> </span><span class="err">∪</span><span class="w"> </span><span class="p">{(</span><span class="n">X</span><span class="w"> </span><span class="err">→</span><span class="w"> </span><span class="p">.</span><span class="n">γ</span><span class="p">,</span><span class="w"> </span><span class="n">w</span><span class="p">)}</span><span class="w"> </span>
+<span class="w">    </span><span class="n">until</span><span class="w"> </span><span class="n">I</span><span class="w"> </span><span class="n">does</span><span class="w"> </span><span class="n">not</span><span class="w"> </span><span class="n">change</span><span class="w"> </span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">I</span>
+
+<span class="n">Goto</span><span class="p">(</span><span class="n">I</span><span class="p">,</span><span class="w"> </span><span class="n">X</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>
+<span class="w">    </span><span class="n">J</span><span class="w"> </span><span class="err">←</span><span class="w"> </span><span class="p">{}</span><span class="w"> </span>
+<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="n">any</span><span class="w"> </span><span class="n">item</span><span class="w"> </span><span class="p">(</span><span class="n">A</span><span class="w"> </span><span class="err">→</span><span class="w"> </span><span class="n">α</span><span class="p">.</span><span class="n">Xβ</span><span class="p">,</span><span class="w"> </span><span class="n">z</span><span class="p">)</span><span class="w"> </span><span class="n">in</span><span class="w"> </span><span class="n">I</span><span class="w">    </span>
+<span class="w">        </span><span class="n">add</span><span class="w"> </span><span class="p">(</span><span class="n">A</span><span class="w"> </span><span class="err">→</span><span class="w"> </span><span class="n">αX</span><span class="p">.</span><span class="w"> </span><span class="n">β</span><span class="p">,</span><span class="w"> </span><span class="n">z</span><span class="p">)</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">J</span><span class="w"> </span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">Closure</span><span class="p">(</span><span class="n">J</span><span class="p">)</span>
+
+<span class="c1">// reduce</span>
+<span class="n">R</span><span class="w"> </span><span class="err">←</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="p">}</span><span class="w"> </span>
+<span class="k">for</span><span class="w"> </span><span class="n">each</span><span class="w"> </span><span class="n">state</span><span class="w"> </span><span class="n">I</span><span class="w"> </span><span class="n">in</span><span class="w"> </span><span class="n">T</span><span class="w">     </span>
+<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="n">each</span><span class="w"> </span><span class="n">item</span><span class="w"> </span><span class="p">(</span><span class="n">A</span><span class="w"> </span><span class="err">→</span><span class="w"> </span><span class="n">α</span><span class="p">.,</span><span class="w"> </span><span class="n">z</span><span class="p">)</span><span class="w"> </span><span class="n">in</span><span class="w"> </span><span class="n">I</span><span class="w"> </span>
+<span class="w">         </span><span class="n">R</span><span class="w"> </span><span class="err">←</span><span class="w"> </span><span class="n">R</span><span class="w"> </span><span class="err">∪</span><span class="p">{(</span><span class="n">I</span><span class="p">,</span><span class="w"> </span><span class="n">z</span><span class="p">,</span><span class="w"> </span><span class="n">A</span><span class="w"> </span><span class="err">→</span><span class="w"> </span><span class="n">α</span><span class="p">)}</span><span class="w"> </span>
+</code></pre></div></td></tr></table></div>
+<h3 id="abstract-syntax"><span>Abstract Syntax<span class="heti-spacing"> </span></span>抽象语法</h3>
+<blockquote>
+<p>2024.04.11</p>
+</blockquote>
+<p>如何构建抽象语法树<span><span class="heti-spacing"> </span>AST</span>，如何将语义信息处理加入到加入到语法分析中去。</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>在<span class="heti-skip"><span class="heti-spacing"> </span>recursive-descent parser<span class="heti-spacing"> </span></span>中，语义动作有<span class="heti-skip"><span class="heti-spacing"> </span>values (<span class="heti-spacing"> </span></span>如算式结果<span><span class="heti-spacing"> </span>)</span>，或者<span class="heti-skip"><span class="heti-spacing"> </span>side effects (<span class="heti-spacing"> </span></span>如赋值语句、函数调用<span><span class="heti-spacing"> </span>)</span>，都需要记录。</p>
+</div>
+<p><img alt="image-20240411103535540" src="./编译原理.assets/image-20240411103535540.png" style="zoom:25%;"/></p>
+<p>一些情况下需要进行语义值得传递。例如：T → F T′；T′ → *F T′；T′ → / F T′，需要将<span class="heti-skip"><span class="heti-spacing"> </span>F<span class="heti-spacing"> </span></span>的值向下传递。</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p><span>Yacc<span class="heti-spacing"> </span></span>中的部分语法：<br/>
+{ … }: semantic actions<br/>
+$i: the semantic values of the i_th RHS symbol<br/>
+$$: the semantic value of the LHS nonterminal symbol<br/>
+%union: difference possible types for semantic values to carry<br/>
+&lt;variant&gt;: declares the type of each terminal or nonterminal<br/></p>
+</div>
+<p><span>Yacc<span class="heti-spacing"> </span></span>代码举例如下：</p>
+<div class="highlight"><table class="highlighttable"><tr><th class="filename" colspan="2"><span class="filename">C</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="o">%</span><span class="p">{</span><span class="w"> </span><span class="err">…</span><span class="w"> </span><span class="o">%</span><span class="p">}</span>
+<span class="o">%</span><span class="k">union</span><span class="w"> </span><span class="p">{</span><span class="kt">int</span><span class="w"> </span><span class="n">num</span><span class="p">;</span><span class="w"> </span><span class="n">string</span><span class="w"> </span><span class="n">id</span><span class="p">;}</span>
+<span class="o">%</span><span class="n">token</span><span class="w"> </span><span class="o">&lt;</span><span class="n">num</span><span class="o">&gt;</span><span class="w"> </span><span class="n">INT</span>
+<span class="o">%</span><span class="n">token</span><span class="w"> </span><span class="o">&lt;</span><span class="n">id</span><span class="o">&gt;</span><span class="w"> </span><span class="n">ID</span>
+<span class="o">%</span><span class="n">type</span><span class="w"> </span><span class="o">&lt;</span><span class="n">num</span><span class="o">&gt;</span><span class="w"> </span><span class="n">exp</span>
+<span class="p">...</span>
+<span class="o">%</span><span class="n">left</span><span class="w"> </span><span class="n">UMINUS</span>
+<span class="o">%%</span>
+
+<span class="nl">exp</span><span class="p">:</span><span class="w"> </span><span class="n">INT</span><span class="w"> </span><span class="p">{</span><span class="n">$$</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">$1</span><span class="p">;}</span>
+<span class="w">   </span><span class="o">|</span><span class="w"> </span><span class="n">exp</span><span class="w"> </span><span class="n">PLUS</span><span class="w"> </span><span class="n">exp</span><span class="w"> </span><span class="p">{</span><span class="n">$$</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">$1</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">$3</span><span class="p">;}</span>
+<span class="w">   </span><span class="o">|</span><span class="w"> </span><span class="n">exp</span><span class="w"> </span><span class="n">MINUS</span><span class="w"> </span><span class="n">exp</span><span class="w"> </span><span class="p">{</span><span class="n">$$</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">$1</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">$3</span><span class="p">;}</span>
+<span class="w">   </span><span class="o">|</span><span class="w"> </span><span class="n">exp</span><span class="w"> </span><span class="n">TIMES</span><span class="w"> </span><span class="n">exp</span><span class="w"> </span><span class="p">{</span><span class="n">$$</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">$1</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">$3</span><span class="p">;}</span>
+<span class="w">   </span><span class="o">|</span><span class="w"> </span><span class="n">MINUS</span><span class="w"> </span><span class="n">exp</span><span class="w"> </span><span class="o">%</span><span class="n">prec</span><span class="w"> </span><span class="n">UMINUS</span><span class="w"> </span><span class="p">{</span><span class="n">$$</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">-</span><span class="n">$2</span><span class="p">;}</span>
+</code></pre></div></td></tr></table></div>
+<h4 id="abstract-syntax-tree">Abstract Syntax Tree</h4>
+<p><img alt="image-20240411110554872" src="./编译原理.assets/image-20240411110554872.png" style="zoom:33%;"/></p>
+<p>相比具体语法，抽象语法略去了一些冗余的信息便于计算机进行处理。</p>
+<p>为方便错误恢复，可以记录下每一个<span class="heti-skip"><span class="heti-spacing"> </span>token<span class="heti-spacing"> </span></span>的位置信息。</p>
+<h3 id="semantic-analysis"><span>Semantic Analysis<span class="heti-spacing"> </span></span>语义分析</h3>
+<blockquote>
+<p>2024.04.11</p>
+</blockquote>
+<p>如何将声明与使用联系到一起，检查表达式是否正确。</p>
+<h4 id="symbol-tables"><span>Symbol Tables<span class="heti-spacing"> </span></span>符号表</h4>
+<ul>
+<li><code>environment</code>：变量与其类型的定义绑定。</li>
+<li><span class="arithmatex">\(\sigma_0=\{g\rightarrow string, a\rightarrow int\}\)</span></li>
+<li><span class="arithmatex">\(\sigma_1=\sigma_0+\{b\rightarrow string, a\rightarrow int\}\)</span></li>
+<li>两个符号表存在一个“冲突”，需要注意到的是局部类型可以覆盖全局的类型。加号右侧的优先级更高。</li>
+<li>一个局部语句块结束时，可以抛弃局部的符号表：<ul>
+<li>discard <span class="arithmatex">\(\sigma_1\)</span>, go back to <span class="arithmatex">\(\sigma_0\)</span></li>
+</ul>
+</li>
+</ul>
+<p>实现符号表有两种方式：</p>
+<ul>
+<li>Functional Style：保留每一级的符号表。</li>
+<li>Imperative Style：只是在一个符号表上进行修改。</li>
+</ul>
+<p>对于一些面向对象的语言，需要有多个符号表，例如：</p>
+<div class="highlight"><table class="highlighttable"><tr><th class="filename" colspan="2"><span class="filename">Java</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">class</span> <span class="nc">E</span><span class="w"> </span><span class="p">{</span><span class="w">   </span>
+<span class="w">    </span><span class="kd">static</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">5</span><span class="p">;</span><span class="w">   </span>
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<p>可以写作：<span class="arithmatex">\(\sigma_0 = \{a\rightarrow int\},\,\sigma_1=\{E\rightarrow \sigma_0\}\)</span></p>
+<p>符号表在具体实现时经常使用哈希表以实现快速的插入与删除：</p>
+<p><img alt="image-20240411113624509" src="./编译原理.assets/image-20240411113624509.png" style="zoom:33%;"/></p>
+<p>对于函数式的符号表，可以使用如下的指针方式高效实现：</p>
+<p><img alt="image-20240411115120025" src="./编译原理.assets/image-20240411115120025.png" style="zoom:33%;"/></p>
+<p>但若是符号表巨大，复制仍然需要较多的时间，可以使用二叉搜索树代替哈希表以加速复制的过程：</p>
+<p><img alt="image-20240411115338728" src="./编译原理.assets/image-20240411115338728.png" style="zoom:33%;"/></p>
+<p>语义分析中不在乎字符串是否匹配，可以将字符串转化为<span class="heti-skip"><span class="heti-spacing"> </span>symbol<span class="heti-spacing"> </span></span>以加速<span class="heti-skip"><span class="heti-spacing"> </span>Hash<span class="heti-spacing"> </span></span>操作。<span>symbol<span class="heti-spacing"> </span></span>可以直接作为<span><span class="heti-spacing"> </span>hash key</span>，用于匹配，还可以在二叉搜索树中作为索引。</p>
+<p><span>Tiger<span class="heti-spacing"> </span></span>语句中有两种绑定：类型绑定<span><span class="heti-spacing"> </span>(Typedef)</span>、变量绑定</p>
+<h4 id="type-checking"><span>Type-checking<span class="heti-spacing"> </span></span>类型检查</h4>
+<p>实际上是对于<span class="heti-skip"><span class="heti-spacing"> </span>AST<span class="heti-spacing"> </span></span>的一个递归遍历的过程。</p>
+<p>需要考虑的情况有：</p>
+<ul>
+<li>
+<p>检查赋值的类型是否一致。</p>
+</li>
+<li>
+<p>将函数名与其参数表一块放进<span><span class="heti-spacing"> </span>environment</span>。</p>
+</li>
+<li>
+<p>结构体中存在大量的递归定义：</p>
+</li>
+</ul>
+<div class="highlight"><table class="highlighttable"><tr><th class="filename" colspan="2"><span class="filename">C</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">struct</span><span class="w"> </span><span class="nc">temp</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">a</span><span class="p">;</span>
+<span class="w">    </span><span class="k">struct</span><span class="w"> </span><span class="nc">temp</span><span class="w"> </span><span class="n">tmp</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<p>如果直接进行检查会出现死锁的情况，此时先检查结构体，使用占位符<span class="heti-skip"><span class="heti-spacing"> </span>(<span class="heti-spacing"> </span></span>如：<span>Ty_Name)<span class="heti-spacing"> </span></span>先代替类型。最后进行处理。</p>
+<p>但如果存在下述的循环定义情况则不可：</p>
+<div class="highlight"><table class="highlighttable"><tr><th class="filename" colspan="2"><span class="filename">C</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span>
+<span class="normal">8</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">typedef</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">b</span><span class="p">;</span>
+<span class="k">typedef</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="n">a</span><span class="p">;</span>
+<span class="cm">/*</span>
+<span class="cm">line1: a -&gt; Ty_Name{a, b’s Ty_Name}</span>
+<span class="cm">       b -&gt; Ty_Name{b, NULL}</span>
+<span class="cm">line2: b -&gt; Ty_Name{b, a’s Ty_Name}</span>
+<span class="cm">     a -&gt; Ty_Name{a, b’s Ty_Name}</span>
+<span class="cm">*/</span>
+</code></pre></div></td></tr></table></div>
+<p>会出现环，无法获取具体的类型。但下述的情况可以：</p>
+<div class="highlight"><table class="highlighttable"><tr><th class="filename" colspan="2"><span class="filename">C</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">typedef</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">b</span><span class="p">;</span>
+<span class="k">struct</span><span class="w"> </span><span class="nc">b</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">a</span><span class="w"> </span><span class="n">i</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="cm">/*</span>
+<span class="cm">line1: a -&gt; Ty_Name{a, b’s Ty_Name}</span>
+<span class="cm">       b -&gt; Ty_Name{b, NULL}</span>
+<span class="cm">line2: b -&gt; Ty_Name{b, Ty_Record}</span>
+<span class="cm">     a -&gt; Ty_Name{a, b’s Ty_Name}</span>
+<span class="cm">*/</span>
+</code></pre></div></td></tr></table></div>
+<p>类型检查也需要检查环的情况。</p>
+<ul>
+<li>对于循环函数递归调用：</li>
+</ul>
+<div class="highlight"><table class="highlighttable"><tr><th class="filename" colspan="2"><span class="filename">C</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kt">void</span><span class="w"> </span><span class="nf">f</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">g</span><span class="p">();</span>
+<span class="p">}</span>
+<span class="kt">void</span><span class="w"> </span><span class="nf">g</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">f</span><span class="p">();</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<p>只需要先计算出一者的返回值和类型、参数表等即可。</p>
+<h3 id="activation-records"><span>Activation Records<span class="heti-spacing"> </span></span>活动记录</h3>
+<blockquote>
+<p>2024.04.18</p>
+</blockquote>
+<p><img alt="image-20240418104824491" src="./编译原理.assets/image-20240418104824491.png" style="zoom:30%;"/></p>
+<p>此章节主要关心<span><span class="heti-spacing"> </span>stack</span>：data structures called <strong>activation records</strong> that get generated during procedure (i.e. function) calls.</p>
+<ul>
+<li>
+<p>Procedure (i.e., function) calls and returns are usually managed by a run-time stack called <em>control stack</em>.</p>
+</li>
+<li>
+<p>Each time a procedure is called, space for its local variables is pushed onto the stack.</p>
+</li>
+<li>
+<p>When the procedure terminates, that space is popped off the stack.</p>
+</li>
+<li>
+<p>Procedure calls are also called activations of procedures.</p>
+</li>
+<li>
+<p>Each live activation has an <em>activation record</em> (sometimes called a <em>frame</em>) on the control stack.</p>
+</li>
+</ul>
+<p>但若可以同时出现<span class="heti-skip"><span class="heti-spacing"> </span>nested function<span class="heti-spacing"> </span></span>和<span class="heti-skip"><span class="heti-spacing"> </span>functio-valued variables (e.g.<span class="heti-spacing"> </span></span>函数指针<span><span class="heti-spacing"> </span>)</span>，栈这种类型的数据结构就不够用了。</p>
+<div class="highlight"><table class="highlighttable"><tr><th class="filename" colspan="2"><span class="filename">JavaScript</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nx">fun</span><span class="w"> </span><span class="nx">f</span><span class="p">(</span><span class="nx">x</span><span class="p">)</span><span class="w"> </span><span class="o">=</span>
+<span class="w">  </span><span class="kd">let</span><span class="w"> </span><span class="nx">fun</span><span class="w"> </span><span class="nx">g</span><span class="p">(</span><span class="nx">y</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">x</span><span class="o">+</span><span class="nx">y</span><span class="w"> </span>
+<span class="w">    </span><span class="ow">in</span><span class="w"> </span><span class="nx">g</span><span class="w"> </span>
+<span class="w">  </span><span class="nx">end</span>
+
+<span class="nx">val</span><span class="w"> </span><span class="nx">h</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">f</span><span class="p">(</span><span class="mf">3</span><span class="p">)</span><span class="w"> </span>
+<span class="nx">val</span><span class="w"> </span><span class="nx">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">f</span><span class="p">(</span><span class="mf">4</span><span class="p">)</span>
+
+<span class="nx">val</span><span class="w"> </span><span class="nx">z</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">h</span><span class="p">(</span><span class="mf">5</span><span class="p">)</span><span class="w"> </span>
+<span class="nx">val</span><span class="w"> </span><span class="nx">w</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">j</span><span class="p">(</span><span class="mf">7</span><span class="p">)</span>
+</code></pre></div></td></tr></table></div>
+<h4 id="stack-frame">Stack frame</h4>
+<blockquote>
+<p>Local variables are pushed/popped in large batches</p>
+<p>Local variables are not always initialized right after their creation</p>
+<p>We want to continue accessing variables deep within the stack</p>
+</blockquote>
+<p>所以需要将栈视为数组，可以访问非栈顶的元素。</p>
+<p>此外还维护了一个<span><span class="heti-spacing"> </span>Stack pointer</span>。</p>
+<p><img alt="image-20240418111025073" src="./编译原理.assets/image-20240418111025073.png" style="zoom:33%;"/></p>
+<p>具体的设计如下：</p>
+<p><img alt="image-20240418112212377" src="./编译原理.assets/image-20240418112212377.png" style="zoom:29%;"/></p>
+<p>其中<span class="heti-skip"><span class="heti-spacing"> </span>previous frame<span class="heti-spacing"> </span></span>为<span class="heti-skip"><span class="heti-spacing"> </span>caller<span class="heti-spacing"> </span></span>函数，<span>current frame<span class="heti-spacing"> </span></span>为<span class="heti-skip"><span class="heti-spacing"> </span>callee<span class="heti-spacing"> </span></span>函数。</p>
+<p><code>incoming arguments</code>: passed by the caller</p>
+<p><code>outgoing arguments</code>: pass parameters to other functions</p>
+<p>可以看到参数是以倒序压在栈中的，这是为了提高指针查询的效率。</p>
+<p>针对于之前提到的函数嵌套等问题，此处通过 <code>static link</code> 来进行栈帧与栈帧之间的连接。</p>
+<p>可以看到除了栈指针外还维护了一个帧指针。在调用新函数时，会记录下老<span class="heti-skip"><span class="heti-spacing"> </span>FP<span class="heti-spacing"> </span></span>的位置，以便回退。</p>
+<p>这种双指针的方式对于非连续内存排布或帧大小可变等情况会较为有效。</p>
+<p>对于传参，由于寄存器的数量有限，一般情况下只有前<span class="heti-skip"><span class="heti-spacing"> </span>k<span class="heti-spacing"> </span></span>个参数通过寄存器进行传参，剩下的参数通过内存传递。但需要注意到由于使用了寄存器进行传参，需要将之前的寄存器都存进内存，似乎会拖慢性能。使用寄存器传参在以下的几个情况有效：</p>
+<ol>
+<li>Leaf procedures need not write their incoming arguments to memory.</li>
+<li>
+<p><strong>leaf</strong> <strong>procedures</strong>: the procedures that don't call other procedures</p>
+</li>
+<li>
+<p>Some optimizing compilers use <strong>interprocedural register allocation</strong>, analyzing all the functions in an entire program at once.</p>
+</li>
+<li>
+<p>They assign different procedures different registers to receive parameters and hold local variables</p>
+</li>
+<li>
+<p>Parameter x is a dead variable at the point where h(z) is called. Then f(x) can overwrite r1 without saving it.</p>
+</li>
+<li>
+<p>Some architectures have register windows, so that each function invocation can allocate a fresh set of registers without memory traffic.</p>
+</li>
+</ol>
+<p>部分架构不会将寄存器放在栈帧中，会放在指定的寄存器中。针对叶子进程可以使用<span class="heti-skip"><span class="heti-spacing"> </span>interprocedural register allocation<span class="heti-spacing"> </span></span>进行优化。</p>
+<h4 id="static-link">Static Link</h4>
+<ul>
+<li><strong>Block</strong> <strong>Structure</strong>: In languages allowing nested function declarations (such as Pascal, ML, and Tiger), the inner functions may use variables declared in outer functions.</li>
+</ul>
+<div class="highlight"><table class="highlighttable"><tr><th class="filename" colspan="2"><span class="filename">JavaScript</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nx">type</span><span class="w"> </span><span class="nx">tree</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="nx">key</span><span class="o">:</span><span class="w"> </span><span class="nx">string</span><span class="p">,</span><span class="w"> </span><span class="nx">left</span><span class="o">:</span><span class="w"> </span><span class="nx">tree</span><span class="p">,</span><span class="w"> </span><span class="nx">right</span><span class="o">:</span><span class="w"> </span><span class="nx">tree</span><span class="p">}</span>
+<span class="kd">function</span><span class="w"> </span><span class="nx">prettyprint</span><span class="p">(</span><span class="nx">tree</span><span class="o">:</span><span class="w"> </span><span class="nx">tree</span><span class="p">)</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="nx">string</span><span class="w"> </span><span class="o">=</span>
+<span class="w">  </span><span class="kd">let</span>
+<span class="w">    </span><span class="kd">var</span><span class="w"> </span><span class="nx">output</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="err">“”</span><span class="w">  </span>
+<span class="w">    </span><span class="kd">function</span><span class="w"> </span><span class="nx">write</span><span class="p">(</span><span class="nx">s</span><span class="o">:</span><span class="w"> </span><span class="nx">string</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>
+<span class="w">      </span><span class="nx">output</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">concat</span><span class="p">(</span><span class="nx">output</span><span class="p">,</span><span class="nx">s</span><span class="p">)</span>
+
+<span class="w">    </span><span class="kd">function</span><span class="w"> </span><span class="nx">show</span><span class="p">(</span><span class="nx">n</span><span class="o">:</span><span class="w"> </span><span class="kr">int</span><span class="p">,</span><span class="w"> </span><span class="nx">t</span><span class="o">:</span><span class="w"> </span><span class="nx">tree</span><span class="p">)</span><span class="w"> </span><span class="o">=</span>
+<span class="w">      </span><span class="kd">let</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="nx">indent</span><span class="p">(</span><span class="nx">s</span><span class="o">:</span><span class="w"> </span><span class="nx">string</span><span class="p">)</span><span class="w"> </span><span class="o">=</span>
+<span class="w">            </span><span class="p">(</span><span class="k">for</span><span class="w"> </span><span class="nx">i</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="mf">1</span><span class="w"> </span><span class="nx">to</span><span class="w"> </span><span class="nx">n</span>
+<span class="w">             </span><span class="k">do</span><span class="w"> </span><span class="nx">write</span><span class="p">(</span><span class="err">“</span><span class="w"> </span><span class="err">”</span><span class="p">));</span>
+<span class="w">             </span><span class="nx">output</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">concat</span><span class="p">(</span><span class="nx">output</span><span class="p">,</span><span class="w"> </span><span class="nx">s</span><span class="p">);</span>
+<span class="w">             </span><span class="nx">write</span><span class="p">(</span><span class="s2">"\n"</span><span class="p">))</span>
+<span class="w">      </span><span class="ow">in</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="nx">t</span><span class="o">=</span><span class="nx">nil</span><span class="w"> </span>
+<span class="w">         </span><span class="nx">then</span><span class="w"> </span><span class="nx">indent</span><span class="p">(</span><span class="s2">"."</span><span class="p">)</span>
+<span class="w">         </span><span class="k">else</span><span class="w"> </span><span class="p">(</span><span class="nx">indent</span><span class="p">(</span><span class="nx">t</span><span class="p">.</span><span class="nx">key</span><span class="p">));</span>
+<span class="w">               </span><span class="nx">show</span><span class="p">(</span><span class="nx">n</span><span class="o">+</span><span class="mf">1</span><span class="p">,</span><span class="w"> </span><span class="nx">t</span><span class="p">.</span><span class="nx">left</span><span class="p">);</span>
+<span class="w">               </span><span class="nx">show</span><span class="p">(</span><span class="nx">n</span><span class="o">+</span><span class="mf">1</span><span class="p">,</span><span class="w"> </span><span class="nx">t</span><span class="p">.</span><span class="nx">right</span><span class="p">))</span>
+<span class="w">      </span><span class="nx">end</span>
+<span class="w">    </span><span class="ow">in</span><span class="w"> </span><span class="nx">show</span><span class="p">(</span><span class="mf">0</span><span class="p">,</span><span class="w"> </span><span class="nx">tree</span><span class="p">);</span><span class="w"> </span><span class="nx">output</span>
+<span class="w">  </span><span class="nx">end</span>
+</code></pre></div></td></tr></table></div>
+<p>此处例如 <code>write</code>  函数需要能够访问 <code>prettyprint</code> 的栈帧。<span>Tiger<span class="heti-spacing"> </span></span>语言中需要通过<span class="heti-skip"><span class="heti-spacing"> </span>static link<span class="heti-spacing"> </span></span>来实现<span><span class="heti-spacing"> </span>Block structure</span>。</p>
+<p><code>static link</code>：每当函数<span class="heti-skip"><span class="heti-spacing"> </span>f<span class="heti-spacing"> </span></span>被调用时，<span>f<span class="heti-spacing"> </span></span>会被传递一个栈帧的指针，指向包含<span class="heti-skip"><span class="heti-spacing"> </span>f<span class="heti-spacing"> </span></span>的上一级函数，放置在<span class="heti-skip"><span class="heti-spacing"> </span>f<span class="heti-spacing"> </span></span>的<span class="heti-skip"><span class="heti-spacing"> </span>static link<span class="heti-spacing"> </span></span>的区域。如果是递归调用则传入自己的<span><span class="heti-spacing"> </span>static link</span>。</p>
+<p>上述代码详细的处理过程如下：</p>
+<ul>
+<li>
+<p><code>in show(0, tree); output</code> </p>
+</li>
+<li>
+<p>passing pretryprint's own frame pointer (FP) as show's static link: prettyprint is the immediate enclosing function of show</p>
+</li>
+<li>
+<p>show's static link = prettyprint's FP</p>
+</li>
+<li>
+<p><code>function show(n:int, t: tree) =</code></p>
+</li>
+<li>
+<p>show stores its static link (the address of prettyprint's FP)</p>
+</li>
+<li>
+<p><code>then indent(".")</code></p>
+</li>
+<li>
+<p>show calls indent, passing its own <strong>FP</strong> as indent's static link</p>
+</li>
+<li>
+<p><code>show(n+1, t.left)</code></p>
+</li>
+<li>
+<p>show calls show, passing its own <strong>static</strong> <strong>link</strong> (not its own FP) as the static link</p>
+</li>
+<li>
+<p><code>for i := 1 to n</code></p>
+</li>
+<li>
+<p>fetch n at an appropriate offset from indent's static link (which points at the frame of show)</p>
+</li>
+<li>
+<p><code>write("\n")</code></p>
+</li>
+<li>
+<p>indent's static link (show's FP) + offset = show's static link = prettyprint's FP</p>
+</li>
+<li>
+<p><strong>How</strong> <strong>can</strong> <strong>indent</strong> <strong>use</strong> <strong>output</strong> <strong>from</strong> <strong>prettyprint's</strong> <strong>frame?</strong></p>
+<p>It starts with its own static link, then fetches show's, then fetches output.</p>
+</li>
+</ul>
+<h3 id="interm-code"><span>Interm. Code<span class="heti-spacing"> </span></span>中间代码</h3>
+<blockquote>
+<p>2024.04.25</p>
+</blockquote>
+<h4 id="three-address-code"><span>Three Address Code<span class="heti-spacing"> </span></span>三地址码</h4>
+<p>最基本的形式为 <code>x = y op z</code> 一条指令涉及到三个地址<span class="heti-skip"><span class="heti-spacing"> </span>(<span class="heti-spacing"> </span></span>地址<span><span class="heti-spacing"> </span>)</span>。对于复杂情况可以进行如下的拆解：</p>
+<p><img alt="image-20240425101940561" src="./编译原理.assets/image-20240425101940561.png" style="zoom:33%;"/></p>
+<p>对于例如取负等操作需要特殊处理使其变为三地址码。</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;"><img alt="image-20240425102313345" src="./编译原理.assets/image-20240425102313345.png" style="zoom:33%;"/></th>
+<th style="text-align: center;"><img alt="image-20240425102322192" src="./编译原理.assets/image-20240425102322192.png" style="zoom:33%;"/></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>需要注意到其中例如 <code>fact *= x</code> 需要拆成两条指令来完成。使用 <code>read</code> 和 <code>write</code> 来进行<span><span class="heti-spacing"> </span>IO</span>，使用 <code>goto</code> 进行跳转，<code>halt</code> 进行停机。</p>
+<h4 id="intermediate-representation-tree">Intermediate Representation Tree</h4>
+<p><img alt="image-20240425103634297" src="./编译原理.assets/image-20240425103634297.png" style="zoom: 33%;"/></p>
+<p><strong>Expressions</strong></p>
+<p><span>IR<span class="heti-spacing"> </span></span>对<span class="heti-skip"><span class="heti-spacing"> </span>AST<span class="heti-spacing"> </span></span>进行简化，为翻译汇编代码提供方便。</p>
+<p><img alt="image-20240425103754153" src="./编译原理.assets/image-20240425103754153.png" style="zoom:33%;"/></p>
+<p><span>IR tree<span class="heti-spacing"> </span></span>并不是专为<span class="heti-skip"><span class="heti-spacing"> </span>Tiger<span class="heti-spacing"> </span></span>语言设计的，具有通用性。每个表达式都有返回值，存在一定的副作用。</p>
+<p><img alt="image-20240425104525298" src="./编译原理.assets/image-20240425104525298.png" style="zoom:33%;"/></p>
+<p>其中<span class="heti-skip"><span class="heti-spacing"> </span>EXP(e)<span class="heti-spacing"> </span></span>仅用作评估计算表达式的副作用<span class="heti-skip"><span class="heti-spacing"> </span>(<span class="heti-spacing"> </span></span>寄存器改变<span class="heti-skip"><span class="heti-spacing"> </span>)<span class="heti-spacing"> </span></span>等，不关心计算的结果。</p>
+<p>语句部分是在评估副作用以及控制流，没有返回值。</p>
+<h4 id="translate-into-ir-tree">Translate into IR tree</h4>
+<p><img alt="image-20240425110132716" src="./编译原理.assets/image-20240425110132716.png" style="zoom:33%;"/></p>
+<p>表达式分类：</p>
+<ul>
+<li><code>Ex</code>：有返回值，适合使用 <code>T_exp</code> 实现。</li>
+<li><code>Nx</code>：没有返回值<span class="heti-skip"><span class="heti-spacing"> </span>(<span class="heti-spacing"> </span></span>函数调用等<span><span class="heti-spacing"> </span>)</span>，适合使用 <code>T_stm</code> 表达。</li>
+<li><code>Cx</code>：特殊类型<span class="heti-skip"><span class="heti-spacing"> </span>(<span class="heti-spacing"> </span></span>由于<span class="heti-skip"><span class="heti-spacing"> </span>Tiger<span class="heti-spacing"> </span></span>不支持布尔类型，故特殊处理<span><span class="heti-spacing"> </span>)</span>，布尔表达式，使用<span class="heti-skip"><span class="heti-spacing"> </span>conditional jump (<span class="heti-spacing"> </span></span><code>CJUMP</code><span class="heti-skip"><span class="heti-spacing"> </span>)<span class="heti-spacing"> </span></span>与<span class="heti-skip"><span class="heti-spacing"> </span>Label<span class="heti-spacing"> </span></span>结合实现，举例如下：</li>
+<li><img alt="image-20240425110808909" src="./编译原理.assets/image-20240425110808909.png" style="zoom:33%;"/></li>
+</ul>
+<p>举例实现实现如下：</p>
+<p><img alt="image-20240425111512996" src="./编译原理.assets/image-20240425111512996.png" style="zoom:40%;"/></p>
+<p>其中 <code>Cx</code> 的第一个参数表示为真执行的语句，<code>toEx</code> 大致实现如下：</p>
+<p><img alt="image-20240425111658443" src="./编译原理.assets/image-20240425111658443.png" style="zoom:33%;"/></p>
+<p>另一个例子如下：</p>
+<p><img alt="image-20240425111822368" src="./编译原理.assets/image-20240425111822368.png" style="zoom:30%;"/></p>
+<p><strong>Simple Variables</strong></p>
+<p>对于变量的调用，过程如下：</p>
+<p><img alt="image-20240425112649664" src="./编译原理.assets/image-20240425112649664.png" style="zoom:33%;"/></p>
+<p>其中<span class="heti-skip"><span class="heti-spacing"> </span>fp<span class="heti-spacing"> </span></span>指的是帧指针。</p>
+<p><strong>L-Values</strong></p>
+<p>表示的是内存的一个地址。</p>
+<p>与之相对应的是右值，不表示能够被赋值的单元。</p>
+<p>Scalar：标量，只用一个字长就能存储。</p>
+<p><span>Tiger<span class="heti-spacing"> </span></span>语言中只有标量，但是在<span class="heti-skip"><span class="heti-spacing"> </span>C<span class="heti-spacing"> </span></span>等语言中，存在结构化的左值<span class="heti-skip"><span class="heti-spacing"> </span>(<span class="heti-spacing"> </span></span>非标量<span><span class="heti-spacing"> </span>)</span>，所以需要对 <code>MEM</code> 语句稍作修改：</p>
+<div class="highlight"><table class="highlighttable"><tr><th class="filename" colspan="2"><span class="filename">C</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">T_exp</span><span class="w"> </span><span class="nf">MEM</span><span class="p">(</span><span class="n">T_exp</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">size</span><span class="p">);</span>
+<span class="n">MEM</span><span class="p">(</span><span class="o">+</span><span class="p">(</span><span class="n">TEMP</span><span class="w"> </span><span class="n">fp</span><span class="p">,</span><span class="w"> </span><span class="n">CONST</span><span class="w"> </span><span class="n">kn</span><span class="p">),</span><span class="w"> </span><span class="n">s</span><span class="p">);</span>
+</code></pre></div></td></tr></table></div>
+<p><strong>Subscripting</strong> <strong>and</strong> <strong>Field</strong> <strong>Selection</strong></p>
+</article>
+</div>
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+</div>
+<button class="md-top md-icon" data-md-component="top" hidden="" type="button">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"></path></svg>
+  Back to top
+</button>
+</main>
+<footer class="md-footer">
+<nav aria-label="Footer" class="md-footer__inner md-grid">
+<a aria-label="Previous: 计算理论" class="md-footer__link md-footer__link--prev" href="../TC/%E8%AE%A1%E7%AE%97%E7%90%86%E8%AE%BA.html">
+<div class="md-footer__button md-icon">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"></path></svg>
+</div>
+<div class="md-footer__title">
+<span class="md-footer__direction">
+                Previous
+              </span>
+<div class="md-ellipsis">
+                计算理论
+              </div>
+</div>
+</a>
+<a aria-label="Next: 软件工程" class="md-footer__link md-footer__link--next" href="../%E8%BD%AF%E5%B7%A5/%E8%BD%AF%E5%B7%A5.html">
+<div class="md-footer__title">
+<span class="md-footer__direction">
+                Next
+              </span>
+<div class="md-ellipsis">
+                软件工程
+              </div>
+</div>
+<div class="md-footer__button md-icon">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"></path></svg>
+</div>
+</a>
+</nav>
+<div class="md-footer-meta md-typeset">
+<div class="md-footer-meta__inner md-grid">
+<div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" rel="noopener" target="_blank">
+      Material for MkDocs
+    </a>
+</div>
+</div>
+</div>
+</footer>
+</div>
+<div class="md-dialog" data-md-component="dialog">
+<div class="md-dialog__inner md-typeset"></div>
+</div>
+<script id="__config" type="application/json">{"base": "../..", "features": ["navigation.top", "navigation.footer", "navigation.tracking", "navigation.tabs"], "search": "../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+<script src="../../assets/javascripts/bundle.ad660dcc.min.js"></script>
+<script src="../../format_more/javascripts/mathjax.js"></script>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</body>
+</html>
